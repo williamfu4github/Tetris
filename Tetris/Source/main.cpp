@@ -1,11 +1,15 @@
 #include "Utility/TetrisCommandLineOptionsHandler.hpp"
 
+#include "GameTetris.hpp"
+
 namespace {
     void configureProgramSettings() {
         std::ios_base::sync_with_stdio(false);
     }
     
     void runMainProgram() {
+        GameTetris gameTetris;
+        gameTetris.playGame();
     }
 }
 
