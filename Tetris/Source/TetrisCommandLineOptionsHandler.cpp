@@ -1,4 +1,4 @@
-#include "Utility/TetrisCommandLineOptionsHandler.hpp"
+#include "TetrisCommandLineOptionsHandler.hpp"
 
 #include <iostream>
 using std::cout;
