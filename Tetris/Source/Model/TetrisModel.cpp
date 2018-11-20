@@ -1,4 +1,4 @@
-#include "TetrisModel.hpp"
+#include "Model/TetrisModel.hpp"
 
 TetrisModel::TetrisModel() {
 }

@@ -1,4 +1,4 @@
-#include "TetrisUI.hpp"
+#include "UI/TetrisUI.hpp"
 
 TetrisUI::~TetrisUI() {
 }
