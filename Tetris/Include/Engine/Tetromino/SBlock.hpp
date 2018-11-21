@@ -1,12 +1,12 @@
-#ifndef ZBlock_hpp
-#define ZBlock_hpp
+#ifndef SBlock_hpp
+#define SBlock_hpp
 
-#include "Model/Tetromino/TetrominoBlock.hpp"
+#include "Engine/Tetromino/TetrominoBlock.hpp"
 
-class ZBlock : public TetrominoBlock {
+class SBlock : public TetrominoBlock {
 public:
-    ZBlock();
-    ~ZBlock() override;
+    SBlock();
+    ~SBlock() override;
     TetrominoBlock* createClone() const override;
     TetrominoType getBlockType() const override;
 private:

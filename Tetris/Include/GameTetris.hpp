@@ -1,7 +1,7 @@
 #ifndef GameTetris_hpp
 #define GameTetris_hpp
 
-class TetrisModel;
+class TetrisEngine;
 class TetrisUI;
 
 class GameTetris {
@@ -21,7 +21,7 @@ public:
     
 private:
     GameTetris::GameStatus gameStatus;
-    TetrisModel* gameModel;
+    TetrisEngine* gameModel;
     TetrisUI* gameUI;
 };
 

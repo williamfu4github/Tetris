@@ -1,10 +1,10 @@
-#include "Model/Tetromino/JBlock.hpp"
+#include "Engine/Tetromino/SBlock.hpp"
 
 using std::vector;
 
 // NOTE: T,S,Z,J,L blocks have same wall kick, I,O blocks are different
 // PRE: attemptNumber must be in [0, rotationAttemptMax)
-Position JBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attemptNumber) {
+Position SBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attemptNumber) {
     vector<Position> wallKicks;
     switch (blockPhase) {
         case TetrominoBlock::TetrominoPhase::UP:
@@ -23,40 +23,40 @@ Position JBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int
     return wallKicks[attemptNumber];
 }
 
-vector<Position> JBlock::tileRelativePositions(TetrominoBlock::TetrominoPhase blockPhase) {
+vector<Position> SBlock::tileRelativePositions(TetrominoBlock::TetrominoPhase blockPhase) {
     switch (blockPhase) {
         case TetrominoBlock::TetrominoPhase::UP:
-            return vector<Position>{Position(0, 0), Position(-1, 0), Position(-1, 1), Position(-1, 2)};
+            return vector<Position>{Position(0, 1), Position(0, 2), Position(-1, 0), Position(-1, 1)};
         case TetrominoBlock::TetrominoPhase::RIGHT:
-            return vector<Position>{Position(0, 2), Position(0, 1), Position(-1, 1), Position(-2, 1)};
+            return vector<Position>{Position(-1, 2), Position(-2, 2), Position(0, 1), Position(-1, 1)};
         case TetrominoBlock::TetrominoPhase::DOWN:
-            return vector<Position>{Position(-2, 2), Position(-1, 2), Position(-1, 1), Position(-1, 0)};
+            return vector<Position>{Position(-2, 1), Position(-2, 0), Position(-1, 2), Position(-1, 1)};
         case TetrominoBlock::TetrominoPhase::LEFT:
-            return vector<Position>{Position(-2, 0), Position(-2, 1), Position(-1, 1), Position(0, 1)};
+            return vector<Position>{Position(-1, 0), Position(0, 0), Position(-2, 1), Position(-1, 1)};
     }
 }
 
-JBlock::JBlock():
+SBlock::SBlock():
     TetrominoBlock() {
 }
 
-JBlock::~JBlock() {
+SBlock::~SBlock() {
 }
 
 // POST: caller must free returned pointer
-TetrominoBlock* JBlock::createClone() const {
-    return new JBlock(*this);
+TetrominoBlock* SBlock::createClone() const {
+    return new SBlock(*this);
 }
 
-TetrominoType JBlock::getBlockType() const {
-    return TetrominoType::J;
+TetrominoType SBlock::getBlockType() const {
+    return TetrominoType::S;
 }
 
 // PRE: attemptNumber must be in [0, rotationAttemptMax)
-Position JBlock::getRotationWallKick(int attemptNumber) const {
-    return JBlock::rotationWallKick(blockPhase, attemptNumber);
+Position SBlock::getRotationWallKick(int attemptNumber) const {
+    return SBlock::rotationWallKick(blockPhase, attemptNumber);
 }
 
-vector<Position> JBlock::getTileRelativePositions() const {
-    return JBlock::tileRelativePositions(blockPhase);
+vector<Position> SBlock::getTileRelativePositions() const {
+    return SBlock::tileRelativePositions(blockPhase);
 }

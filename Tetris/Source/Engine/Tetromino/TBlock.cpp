@@ -1,10 +1,10 @@
-#include "Model/Tetromino/ZBlock.hpp"
+#include "Engine/Tetromino/TBlock.hpp"
 
 using std::vector;
 
 // NOTE: T,S,Z,J,L blocks have same wall kick, I,O blocks are different
 // PRE: attemptNumber must be in [0, rotationAttemptMax)
-Position ZBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attemptNumber) {
+Position TBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attemptNumber) {
     vector<Position> wallKicks;
     switch (blockPhase) {
         case TetrominoBlock::TetrominoPhase::UP:
@@ -23,40 +23,40 @@ Position ZBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int
     return wallKicks[attemptNumber];
 }
 
-vector<Position> ZBlock::tileRelativePositions(TetrominoBlock::TetrominoPhase blockPhase) {
+vector<Position> TBlock::tileRelativePositions(TetrominoBlock::TetrominoPhase blockPhase) {
     switch (blockPhase) {
         case TetrominoBlock::TetrominoPhase::UP:
-            return vector<Position>{Position(0, 0), Position(0, 1), Position(-1, 1), Position(-1, 2)};
+            return vector<Position>{Position(0, 1), Position(-1, 0), Position(-1, 1), Position(-1, 2)};
         case TetrominoBlock::TetrominoPhase::RIGHT:
-            return vector<Position>{Position(0, 2), Position(-1, 2), Position(-1, 1), Position(-2, 1)};
+            return vector<Position>{Position(-1, 2), Position(0, 1), Position(-1, 1), Position(-2, 1)};
         case TetrominoBlock::TetrominoPhase::DOWN:
-            return vector<Position>{Position(-2, 2), Position(-2, 1), Position(-1, 1), Position(-1, 0)};
+            return vector<Position>{Position(-2, 1), Position(-1, 2), Position(-1, 1), Position(-1, 0)};
         case TetrominoBlock::TetrominoPhase::LEFT:
-            return vector<Position>{Position(-2, 0), Position(-1, 0), Position(-1, 1), Position(0, 1)};
+            return vector<Position>{Position(-1, 0), Position(-2, 1), Position(-1, 1), Position(0, 1)};
     }
 }
 
-ZBlock::ZBlock():
+TBlock::TBlock():
     TetrominoBlock() {
 }
 
-ZBlock::~ZBlock() {
+TBlock::~TBlock() {
 }
 
 // POST: caller must free returned pointer
-TetrominoBlock* ZBlock::createClone() const {
-    return new ZBlock(*this);
+TetrominoBlock* TBlock::createClone() const {
+    return new TBlock(*this);
 }
 
-TetrominoType ZBlock::getBlockType() const {
-    return TetrominoType::Z;
+TetrominoType TBlock::getBlockType() const {
+    return TetrominoType::T;
 }
 
 // PRE: attemptNumber must be in [0, rotationAttemptMax)
-Position ZBlock::getRotationWallKick(int attemptNumber) const {
-    return ZBlock::rotationWallKick(blockPhase, attemptNumber);
+Position TBlock::getRotationWallKick(int attemptNumber) const {
+    return TBlock::rotationWallKick(blockPhase, attemptNumber);
 }
 
-vector<Position> ZBlock::getTileRelativePositions() const {
-    return ZBlock::tileRelativePositions(blockPhase);
+vector<Position> TBlock::getTileRelativePositions() const {
+    return TBlock::tileRelativePositions(blockPhase);
 }

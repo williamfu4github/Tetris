@@ -1,11 +1,11 @@
 #include "GameTetris.hpp"
 
-#include "Model/TetrisModel.hpp"
+#include "Engine/TetrisEngine.hpp"
 #include "UI/TetrisUI.hpp"
 
 GameTetris::GameTetris():
     gameStatus(GameTetris::GameStatus::NOT_STARTED) {
-    gameModel = new TetrisModel;
+    gameModel = new TetrisEngine;
     gameUI = new TetrisUI;
 }
 

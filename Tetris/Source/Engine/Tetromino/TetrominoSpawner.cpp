@@ -1,12 +1,12 @@
-#include "Model/Tetromino/TetrominoSpawner.hpp"
+#include "Engine/Tetromino/TetrominoSpawner.hpp"
 
-#include "Model/Tetromino/IBlock.hpp"
-#include "Model/Tetromino/OBlock.hpp"
-#include "Model/Tetromino/TBlock.hpp"
-#include "Model/Tetromino/SBlock.hpp"
-#include "Model/Tetromino/ZBlock.hpp"
-#include "Model/Tetromino/JBlock.hpp"
-#include "Model/Tetromino/LBlock.hpp"
+#include "Engine/Tetromino/IBlock.hpp"
+#include "Engine/Tetromino/OBlock.hpp"
+#include "Engine/Tetromino/TBlock.hpp"
+#include "Engine/Tetromino/SBlock.hpp"
+#include "Engine/Tetromino/ZBlock.hpp"
+#include "Engine/Tetromino/JBlock.hpp"
+#include "Engine/Tetromino/LBlock.hpp"
 #include <chrono>
 namespace chrono = std::chrono;
 

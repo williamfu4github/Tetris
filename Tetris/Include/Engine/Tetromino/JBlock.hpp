@@ -1,12 +1,12 @@
-#ifndef LBlock_hpp
-#define LBlock_hpp
+#ifndef JBlock_hpp
+#define JBlock_hpp
 
-#include "Model/Tetromino/TetrominoBlock.hpp"
+#include "Engine/Tetromino/TetrominoBlock.hpp"
 
-class LBlock : public TetrominoBlock {
+class JBlock : public TetrominoBlock {
 public:
-    LBlock();
-    ~LBlock() override;
+    JBlock();
+    ~JBlock() override;
     TetrominoBlock* createClone() const override;
     TetrominoType getBlockType() const override;
 private:

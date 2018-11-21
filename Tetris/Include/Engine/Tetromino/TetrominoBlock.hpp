@@ -2,7 +2,7 @@
 #define TetrominoBlock_hpp
 
 #include "Utility/Position.hpp"
-#include "Model/Tetromino/TetrominoType.hpp"
+#include "Engine/Tetromino/TetrominoType.hpp"
 #include <vector>
 
 class TetrominoBlock {
