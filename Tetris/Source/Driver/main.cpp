@@ -1,6 +1,5 @@
-#include "TetrisCommandLineOptionsHandler.hpp"
-
-#include "GameTetris.hpp"
+#include "Driver/TetrisCommandLineOptionsHandler.hpp"
+#include "Driver/GameTetris.hpp"
 
 namespace {
     void configureProgramSettings() {

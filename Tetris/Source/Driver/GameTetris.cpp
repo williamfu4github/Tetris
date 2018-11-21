@@ -1,4 +1,4 @@
-#include "GameTetris.hpp"
+#include "Driver/GameTetris.hpp"
 
 #include "Engine/TetrisEngine.hpp"
 #include "UI/TetrisUI.hpp"

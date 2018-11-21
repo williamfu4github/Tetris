@@ -69,7 +69,7 @@ TESTOBJS         := $(TESTSRCS:$(TESTDIR)/%.cpp=$(OBJDIR)/TestObject/%.o)
 TESTS            := $(TESTSRCS:$(TESTDIR)/%.cpp=$(OBJDIR)/Test/%.out)
 TESTOBJSUBDIRS   := $(shell echo $(dir $(TESTOBJS)) | tr ' ' '\n' | sort | uniq | tr '\n' ' ')
 TESTSUBDIRS      := $(shell echo $(dir $(TESTS)) | tr ' ' '\n' | sort | uniq | tr '\n' ' ')
-TESTLINKOBJS     := $(filter-out $(OBJDIR)/Object/main.o, $(OBJECTS))
+TESTLINKOBJS     := $(filter-out $(OBJDIR)/Object/%/main.o, $(OBJECTS))
 
 # define options
 .PHONY: $(PROJECT) clean help
