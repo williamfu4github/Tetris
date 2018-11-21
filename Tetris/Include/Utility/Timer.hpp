@@ -9,7 +9,7 @@ public:
     ~Timer();
     void startTimer();
     void pauseTimer();
-    void clearTimer();    // not used
+    void resetTimer();
     std::chrono::steady_clock::duration getAccumulatedTime() const;
     
 private:

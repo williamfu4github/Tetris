@@ -24,7 +24,7 @@ void Timer::pauseTimer() {
     timePoint = nullptr;
 }
 
-void Timer::clearTimer() {
+void Timer::resetTimer() {
     delete timePoint;
     timePoint = nullptr;
     *timeDuration = chrono::steady_clock::duration(0);
