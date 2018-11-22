@@ -52,8 +52,11 @@ TetrisUI::ControllerEvent TetrisX11UI::getNextEvent() {
             break;
         case KeyPress: {
             KeySym key = ::XLookupKeysym(&event.xkey, 0);
-            if (key == XK_Return) {
-                return TetrisUI::ControllerEvent::KEY_ENTER;
+            if (key == XK_q) {
+                return TetrisUI::ControllerEvent::KEY_Q;
+            }
+            else if (key == XK_Return) {
+                return TetrisUI::ControllerEvent::KEY_RETURN;
             }
             else if (key == XK_Left) {
                 return TetrisUI::ControllerEvent::KEY_LEFT;

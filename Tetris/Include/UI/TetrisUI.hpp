@@ -8,7 +8,8 @@ public:
     enum class ControllerEvent {
         NO_EVENT,
         WINDOW_CLOSE,
-        KEY_ENTER,
+        KEY_Q,
+        KEY_RETURN,
         KEY_LEFT,
         KEY_RIGHT,
         KEY_DOWN,

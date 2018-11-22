@@ -30,7 +30,9 @@ void GameTetris::playGame() {
                 break;
             case TetrisUI::ControllerEvent::WINDOW_CLOSE:
                 return;
-            case TetrisUI::ControllerEvent::KEY_ENTER:
+            case TetrisUI::ControllerEvent::KEY_Q:
+                return;
+            case TetrisUI::ControllerEvent::KEY_RETURN:
                 switch (gameState) {
                     case GameState::WELCOME:
                         gameState = GameState::COUNT_DOWN;
