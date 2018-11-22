@@ -1,5 +1,6 @@
 #include "Engine/TetrisBoard.hpp"
 
+#include "Data/TetrisData.hpp"
 using std::vector;
 
 const int TetrisBoard::boardSizeColumn = 10;
@@ -75,6 +76,11 @@ void TetrisBoard::clearFullRows() {
             rowOccupancies.back() = 0;
         }
     }
+}
+
+void TetrisBoard::collectData(TetrisData* gameData) const {
+    gameData->gameBoard = gameBoard;
+    gameData->gameBoard.resize(TetrisBoard::boardBoundaryRow);
 }
 
 // NOTE: position may be off board

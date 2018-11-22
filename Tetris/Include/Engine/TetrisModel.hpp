@@ -5,6 +5,7 @@
 class TetrominoSpawner;
 class TetrisBoard;
 class TetrominoBlock;
+struct TetrisData;
 
 class TetrisModel {
 public:
@@ -24,6 +25,7 @@ public:
     TetrisModel::ActionResult rotateActiveTetrominoCounterClockwise();
     TetrisModel::ActionResult holdActiveTetromino();
     TetrisModel::ActionResult dropActiveTetromino();
+    void collectData(TetrisData* gameData) const;
 private:
     TetrisModel::ActionResult initializeActiveTetromino();
     TetrisModel::ActionResult finalizeActiveTetromino();

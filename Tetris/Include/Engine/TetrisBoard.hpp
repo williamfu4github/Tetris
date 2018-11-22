@@ -4,6 +4,7 @@
 #include "Utility/Position.hpp"
 #include "Engine/Tetromino/TetrominoType.hpp"
 #include <vector>
+struct TetrisData;
 
 class TetrisBoard {
 public:
@@ -14,6 +15,7 @@ public:
     void setTilesState(std::vector<Position> tilePositions, TetrominoType newState);
     int countFullRows() const;    // not used
     void clearFullRows();
+    void collectData(TetrisData* gameData) const;
 private:
     bool checkOneTileEmpty(Position tilePosition) const;
     

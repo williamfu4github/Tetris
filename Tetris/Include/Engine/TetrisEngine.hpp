@@ -4,6 +4,7 @@
 #include <chrono>
 class TetrisModel;
 class Timer;
+struct TetrisData;
 
 class TetrisEngine {
 public:
@@ -32,6 +33,8 @@ public:
     void rotateActiveTetrominoCounterClockwise();
     void holdActiveTetromino();
     void dropActiveTetromino();
+    TetrisEngine::GameStatus getGameStatus() const;
+    void collectData(TetrisData* gameData) const;
 private:
     void startNewTemporalTask(TetrisEngine::TemporalTask newTask);
     bool reachTemporalTaskEvent() const;

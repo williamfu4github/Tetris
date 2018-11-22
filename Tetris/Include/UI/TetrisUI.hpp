@@ -24,6 +24,10 @@ public:
     virtual void renderView(TetrisData* gameData) = 0;
 protected:
     TetrisUI();
+    
+protected:
+    static const int boardSizeColumn;
+    static const int boardBoundaryRow;
 };
 
 #endif

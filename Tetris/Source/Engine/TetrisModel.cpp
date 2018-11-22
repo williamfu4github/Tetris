@@ -3,6 +3,7 @@
 #include "Engine/Tetromino/TetrominoSpawner.hpp"
 #include "Engine/TetrisBoard.hpp"
 #include "Engine/Tetromino/TetrominoBlock.hpp"
+#include "Data/TetrisData.hpp"
 
 Position TetrisModel::tetrominoInitialPosition() {
     return Position(TetrisBoard::boardBoundaryRow, (TetrisBoard::boardSizeColumn - 4) / 2);
@@ -85,8 +86,7 @@ TetrisModel::ActionResult TetrisModel::holdActiveTetromino() {
 // return SUCCESS or GAME_OVER
 TetrisModel::ActionResult TetrisModel::dropActiveTetromino() {
     delete activeTetromino;
-    activeTetromino = shadowTetromino;
-    shadowTetromino = nullptr;
+    activeTetromino = shadowTetromino->createClone();
     if (this->finalizeActiveTetromino() == TetrisModel::ActionResult::GAME_OVER) {
         return TetrisModel::ActionResult::GAME_OVER;
     }
@@ -96,6 +96,22 @@ TetrisModel::ActionResult TetrisModel::dropActiveTetromino() {
         return TetrisModel::ActionResult::GAME_OVER;
     }
     return TetrisModel::ActionResult::SUCCESS;
+}
+
+void TetrisModel::collectData(TetrisData* gameData) const {
+    gameData->activeTetromino = activeTetromino->getBlockType();
+    gameData->activeTetrominoPositions = activeTetromino->getTilePositions();
+    gameData->shadowTetrominoPositions = shadowTetromino->getTilePositions();
+    gameData->nextTetromino = nextTetromino->getBlockType();
+    gameData->nextTetrominoPositions = nextTetromino->getTilePositions();
+    if (holdingTetromino != nullptr) {
+        gameData->holdingTetromino = holdingTetromino->getBlockType();
+        gameData->holdingTetrominoPositions = holdingTetromino->getTilePositions();
+    }
+    else {
+        gameData->holdingTetromino = TetrominoType::EMPTY;
+    }
+    gameBoard->collectData(gameData);
 }
 
 // return SUCCESS or GAME_OVER

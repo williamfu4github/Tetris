@@ -136,6 +136,14 @@ void TetrisEngine::dropActiveTetromino() {
     }
 }
 
+TetrisEngine::GameStatus TetrisEngine::getGameStatus() const {
+    return gameStatus;
+}
+
+void TetrisEngine::collectData(TetrisData* gameData) const {
+    gameModel->collectData(gameData);
+}
+
 void TetrisEngine::startNewTemporalTask(TetrisEngine::TemporalTask newTask) {
     temporalTaskTimer->resetTimer();
     temporalTask = newTask;
