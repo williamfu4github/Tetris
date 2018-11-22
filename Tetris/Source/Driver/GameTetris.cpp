@@ -1,16 +1,17 @@
 #include "Driver/GameTetris.hpp"
 
 #include "Engine/TetrisEngine.hpp"
-#include "UI/TetrisUI.hpp"
+#include "UI/TetrisX11UI.hpp"
+#include "Data/TetrisData.hpp"
 
 GameTetris::GameTetris():
-    gameStatus(GameTetris::GameStatus::NOT_STARTED) {
-    gameModel = new TetrisEngine;
-    gameUI = new TetrisUI;
+    gameState(GameState::WELCOME) {
+    gameEngine = new TetrisEngine;
+    gameUI = new TetrisX11UI;
 }
 
 GameTetris::~GameTetris() {
-    delete gameModel;
+    delete gameEngine;
     delete gameUI;
 }
 
@@ -22,5 +23,14 @@ void GameTetris::playGame() {
 //            case TetrisUI::ControllerEvent::WINDOW_CLOSE:
 //                return;
 //        }
+        gameEngine->performOneFrame();
+        gameUI->renderView(this->collectData());
     }
+}
+
+// POST: caller must free returned pointer
+TetrisData* GameTetris::collectData() const {
+    TetrisData* gameData = new TetrisData;
+    gameData->gameState = gameState;
+    return gameData;
 }

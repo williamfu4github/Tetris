@@ -1,6 +1,8 @@
 #ifndef TetrisUI_hpp
 #define TetrisUI_hpp
 
+class TetrisData;
+
 class TetrisUI {
 public:
     enum class ControllerEvent {
@@ -17,9 +19,10 @@ public:
     };
     
 public:
-    ~TetrisUI();
-    TetrisUI::ControllerEvent getNextEvent();
-public:
+    virtual ~TetrisUI() = 0;
+    virtual TetrisUI::ControllerEvent getNextEvent() = 0;
+    virtual void renderView(TetrisData* gameData) = 0;
+protected:
     TetrisUI();
 };
 

@@ -1,27 +1,22 @@
 #ifndef GameTetris_hpp
 #define GameTetris_hpp
 
+#include "Driver/GameState.hpp"
 class TetrisEngine;
 class TetrisUI;
+class TetrisData;
 
 class GameTetris {
-private:
-    enum class GameStatus {
-        NOT_STARTED,
-        COUNT_DOWN,
-        IN_GAME,
-        PAUSED,
-        GAME_OVER
-    };
-    
 public:
     GameTetris();
     ~GameTetris();
     void playGame();
+private:
+    TetrisData* collectData() const;
     
 private:
-    GameTetris::GameStatus gameStatus;
-    TetrisEngine* gameModel;
+    GameState gameState;
+    TetrisEngine* gameEngine;
     TetrisUI* gameUI;
 };
 
