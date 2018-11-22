@@ -3,7 +3,7 @@
 using std::vector;
 
 // NOTE: T,S,Z,J,L blocks have same wall kick, I,O blocks are different
-// PRE: attemptNumber must be in [0, rotationAttemptMax)
+// PRE: attemptNumber must be in [0, 4]
 Position OBlock::rotationWallKick(int attemptNumber) {
     vector<Position> wallKicks{Position(0, 0), Position(0, 0), Position(0, 0), Position(0, 0), Position(0, 0)};
     return wallKicks[attemptNumber];
@@ -38,7 +38,7 @@ TetrominoType OBlock::getBlockType() const {
     return TetrominoType::O;
 }
 
-// PRE: attemptNumber must be in [0, rotationAttemptMax)
+// PRE: attemptNumber must be in [0, 4]
 Position OBlock::getRotationWallKick(int attemptNumber) const {
     return OBlock::rotationWallKick(attemptNumber);
 }

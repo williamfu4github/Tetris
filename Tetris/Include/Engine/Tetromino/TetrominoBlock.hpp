@@ -35,9 +35,6 @@ private:
 protected:
     Position blockPosition;
     TetrominoBlock::TetrominoPhase blockPhase;
-    
-public:
-    static const int rotationAttemptMax;
 };
 
 #endif

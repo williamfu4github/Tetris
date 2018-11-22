@@ -21,7 +21,12 @@ int main(int argc, char** argv) {
         case CommandLineOptionsHandler::ResultStatus::EXIT_WITH_ERROR:
             return EXIT_FAILURE;
         case CommandLineOptionsHandler::ResultStatus::CONTINUE_EXECUTION:
-            ::runMainProgram();
-            return EXIT_SUCCESS;
+            try {
+                ::runMainProgram();
+                return EXIT_SUCCESS;
+            }
+            catch (...) {
+                return EXIT_FAILURE;
+            }
     }
 }

@@ -3,7 +3,7 @@
 using std::vector;
 
 // NOTE: T,S,Z,J,L blocks have same wall kick, I,O blocks are different
-// PRE: attemptNumber must be in [0, rotationAttemptMax)
+// PRE: attemptNumber must be in [0, 4]
 Position IBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attemptNumber) {
     vector<Position> wallKicks;
     switch (blockPhase) {
@@ -52,7 +52,7 @@ TetrominoType IBlock::getBlockType() const {
     return TetrominoType::I;
 }
 
-// PRE: attemptNumber must be in [0, rotationAttemptMax)
+// PRE: attemptNumber must be in [0, 4]
 Position IBlock::getRotationWallKick(int attemptNumber) const {
     return IBlock::rotationWallKick(blockPhase, attemptNumber);
 }

@@ -4,7 +4,9 @@
 #include "Engine/TetrisBoard.hpp"
 #include "Engine/Tetromino/TetrominoBlock.hpp"
 
-const Position TetrisModel::tetrominoInitialPosition(20, 3);
+Position TetrisModel::tetrominoInitialPosition() {
+    return Position(TetrisBoard::boardBoundaryRow, (TetrisBoard::boardSizeColumn - 4) / 2);
+}
 
 TetrisModel::TetrisModel():
     shadowTetromino(nullptr),
@@ -48,7 +50,7 @@ TetrisModel::ActionResult TetrisModel::shiftActiveTetrominoRight() {
 
 // return SUCCESS or FAILURE
 TetrisModel::ActionResult TetrisModel::rotateActiveTetrominoClockwise() {
-    for (int attemptNumber = 0; attemptNumber < TetrominoBlock::rotationAttemptMax; attemptNumber ++) {
+    for (int attemptNumber = 0; attemptNumber <= 4; attemptNumber ++) {
         TetrominoBlock* proposedBlock = activeTetromino->createClone();
         proposedBlock->rotateClockwise(attemptNumber);
         if (this->handleActionProposal(proposedBlock) == TetrisModel::ActionResult::SUCCESS) {
@@ -60,7 +62,7 @@ TetrisModel::ActionResult TetrisModel::rotateActiveTetrominoClockwise() {
 
 // return SUCCESS or FAILURE
 TetrisModel::ActionResult TetrisModel::rotateActiveTetrominoCounterClockwise() {
-    for (int attemptNumber = 0; attemptNumber < TetrominoBlock::rotationAttemptMax; attemptNumber ++) {
+    for (int attemptNumber = 0; attemptNumber <= 4; attemptNumber ++) {
         TetrominoBlock* proposedBlock = activeTetromino->createClone();
         proposedBlock->rotateCounterClockwise(attemptNumber);
         if (this->handleActionProposal(proposedBlock) == TetrisModel::ActionResult::SUCCESS) {
@@ -98,7 +100,7 @@ TetrisModel::ActionResult TetrisModel::dropActiveTetromino() {
 
 // return SUCCESS or GAME_OVER
 TetrisModel::ActionResult TetrisModel::initializeActiveTetromino() {
-    activeTetromino->setBlockPosition(TetrisModel::tetrominoInitialPosition);
+    activeTetromino->setBlockPosition(TetrisModel::tetrominoInitialPosition());
     this->updateShadowTetromino();
     if (!gameBoard->checkTilesEmpty(activeTetromino->getTilePositions())) {
         return TetrisModel::ActionResult::GAME_OVER;

@@ -31,9 +31,9 @@ endif
 
     SRCDIR       := $(HOMEDIR)/Source
     DEFINES       =
-    INCLUDES     := -I$(INCLDIR) -I/usr/local/include
-    LIBDIRS       = -L/usr/local/lib
-    LIBS          = -lboost_program_options
+    INCLUDES     := -I$(INCLDIR) -I/usr/local/include -I/usr/X11/include
+    LIBDIRS       = -L/usr/local/lib -L/usr/X11/lib
+    LIBS          = -lboost_program_options -lX11
 
     TESTDIR      := $(HOMEDIR)/Test
     TESTDEFS      =

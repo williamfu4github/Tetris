@@ -2,6 +2,7 @@
 #define TetrisX11UI_hpp
 
 #include "UI/TetrisUI.hpp"
+#include <X11/Xlib.h>
 
 class TetrisX11UI : public TetrisUI {
 public:
@@ -9,27 +10,34 @@ public:
     ~TetrisX11UI() override;
     TetrisUI::ControllerEvent getNextEvent() override;
     void renderView(TetrisData* gameData) override;
+private:
+    void createGameWindow();
+    void createGraphicalResource();
+    
+private:
+    Display* deviceDisplay;
+    int deviceScreen;
+    Window* gameWindow;
+    GC* graphicsContext;
 };
 
 #endif
 
 
-//#include "UI/TetrisUI.hpp"
-//#include <X11/Xlib.h>
+
 //#include <string>
 //#include <unordered_map>
 //
 
 
-//private:
+
 //    void interpretGameData() override;
 //    void renderNotStartedView();
 //    void renderCountDownView();
 //    void renderInGameView();
 //    void renderPausedView();
 //    void renderGameOverView();
-//    void createGameWindow();
-//    void createGraphicalResource();
+
 //    void renderBoardGrid();
 //    void renderBoard();
 //    void renderShadowTetromino();
@@ -45,11 +53,7 @@ public:
 //    int calculateWindowPositionX() const;
 //    int calculateWindowPositionY() const;
 //
-//private:
-//    Display* deviceDisplay;
-//    int deviceScreen;
-//    Window* gameWindow;
-//    GC* graphicsContext;
+
 //    std::unordered_map<std::string, XColor> colorMap;
 //
 //private:

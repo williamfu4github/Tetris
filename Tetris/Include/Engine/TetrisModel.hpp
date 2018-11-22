@@ -40,7 +40,7 @@ private:
     TetrominoBlock* holdingTetromino;
     
 private:
-    static const Position tetrominoInitialPosition;
+    static Position tetrominoInitialPosition();
 };
 
 #endif

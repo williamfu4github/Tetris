@@ -2,8 +2,6 @@
 
 using std::vector;
 
-const int TetrominoBlock::rotationAttemptMax = 5;
-
 TetrominoBlock::~TetrominoBlock() {
 }
 
@@ -27,7 +25,7 @@ void TetrominoBlock::shiftUp() {
     blockPosition.row ++;
 }
 
-// PRE: attemptNumber must be in [0, rotationAttemptMax)
+// PRE: attemptNumber must be in [0, 4]
 void TetrominoBlock::rotateClockwise(int attemptNumber) {
     Position wallKick = this->getRotationWallKick(attemptNumber);
     blockPosition.row += wallKick.row;
@@ -48,7 +46,7 @@ void TetrominoBlock::rotateClockwise(int attemptNumber) {
     }
 }
 
-// PRE: attemptNumber must be in [0, rotationAttemptMax)
+// PRE: attemptNumber must be in [0, 4]
 void TetrominoBlock::rotateCounterClockwise(int attemptNumber) {
     Position wallKick = this->getRotationWallKick(attemptNumber);
     blockPosition.row -= wallKick.row;

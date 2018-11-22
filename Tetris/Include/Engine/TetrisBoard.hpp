@@ -21,10 +21,11 @@ private:
     std::vector<std::vector<TetrominoType>> gameBoard;
     std::vector<int> rowOccupancies;
     
-private:
-    static const int boardSizeRow;
+public:
     static const int boardSizeColumn;
     static const int boardBoundaryRow;
+private:
+    static const int boardSizeRow;
 };
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef TetrisUI_hpp
 #define TetrisUI_hpp
 
-class TetrisData;
+struct TetrisData;
 
 class TetrisUI {
 public:

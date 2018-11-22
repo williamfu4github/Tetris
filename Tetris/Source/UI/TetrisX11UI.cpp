@@ -1,7 +1,19 @@
 #include "UI/TetrisX11UI.hpp"
 
+#include <iostream>
+using std::cerr;
+using std::endl;
+
 TetrisX11UI::TetrisX11UI():
     TetrisUI() {
+    deviceDisplay = ::XOpenDisplay(nullptr);
+    if (deviceDisplay == nullptr) {
+        cerr << "ERROR: X11 cannot open device display" << endl;
+        throw 0;
+    }
+    deviceScreen = ::XDefaultScreen(deviceDisplay);
+    this->createGameWindow();
+    this->createGraphicalResource();
 }
 
 TetrisX11UI::~TetrisX11UI() {
@@ -15,12 +27,44 @@ void TetrisX11UI::renderView(TetrisData* gameData) {
     return;
 }
 
+void TetrisX11UI::createGameWindow() {
+//    gameWindow = new Window;
+//    *gameWindow = ::XCreateSimpleWindow(deviceDisplay, ::XRootWindow(deviceDisplay, deviceScreen), this->calculateWindowPositionX(), this->calculateWindowPositionY(), this->calculateWindowSizeX(), this->calculateWindowSizeY(), 1, ::XBlackPixel(deviceDisplay, deviceScreen), ::XBlackPixel(deviceDisplay, deviceScreen));
+//    XSizeHints* wmSizeHint = ::XAllocSizeHints();
+//    wmSizeHint->min_width = this->calculateWindowSizeX();
+//    wmSizeHint->min_height = this->calculateWindowSizeY();
+//    wmSizeHint->max_width = this->calculateWindowSizeX();
+//    wmSizeHint->max_height = this->calculateWindowSizeY();
+//    wmSizeHint->flags = PPosition | PSize | PMinSize | PMaxSize;
+//    ::XSetStandardProperties(deviceDisplay, *gameWindow, TetrisX11UI::windowTitle.c_str(), nullptr, None, nullptr, 0, wmSizeHint);
+//    ::XFree(wmSizeHint);
+//    Atom wmCloseWindow = ::XInternAtom(deviceDisplay, "WM_DELETE_WINDOW", false);
+//    ::XSetWMProtocols(deviceDisplay, *gameWindow, &wmCloseWindow, 1);
+//    ::XSelectInput(deviceDisplay, *gameWindow, ExposureMask | KeyPressMask);
+//    ::XMapRaised(deviceDisplay, *gameWindow);
+}
+
+void TetrisX11UI::createGraphicalResource() {
+//    graphicsContext = new GC;
+//    *graphicsContext = ::XCreateGC(deviceDisplay, *gameWindow, 0, nullptr);
+//    Colormap palette = ::XDefaultColormap(deviceDisplay, deviceScreen);
+//    vector<string> colorList{"black", "white", "grey", "brown", "cyan", "yellow", "purple", "green", "red", "blue", "orange"};
+//    for (string colorString : colorList) {
+//        XColor color;
+//        if (::XAllocNamedColor(deviceDisplay, palette, colorString.c_str(), &color, &color) == 0) {
+//            cerr << "ERROR: X11 cannot find color " << colorString << " for the device display" << endl;
+//        }
+//        colorMap[colorString] = color;
+//    }
+}
+
+
+
 //#include "TetrisData.hpp"
 //#include <X11/Xutil.h>
-//#include <iostream>
+
 //#include <vector>
-//using std::cerr;
-//using std::endl;
+
 //using std::string;
 //using std::vector;
 //
@@ -29,17 +73,7 @@ void TetrisX11UI::renderView(TetrisData* gameData) {
 //const int TetrisX11UI::windowMarginX = 60;
 //const int TetrisX11UI::windowMarginY = 80;
 //
-//TetrisX11UI::TetrisX11UI():
-//    TetrisUI() {
-//    deviceDisplay = ::XOpenDisplay(nullptr);
-//    if (deviceDisplay == nullptr) {
-//        cerr << "ERROR: X11 cannot open device display" << endl;
-//    }
-//    deviceScreen = ::XDefaultScreen(deviceDisplay);
-//    this->createGameWindow();
-//    this->createGraphicalResource();
-//}
-//
+
 //TetrisX11UI::~TetrisX11UI() {
 //    ::XDestroyWindow(deviceDisplay, *gameWindow);
 //    delete gameWindow;
@@ -145,36 +179,6 @@ void TetrisX11UI::renderView(TetrisData* gameData) {
 //    this->drawString("GameOver", 24, 40, 150);
 //}
 //
-//void TetrisX11UI::createGameWindow() {
-//    gameWindow = new Window;
-//    *gameWindow = ::XCreateSimpleWindow(deviceDisplay, ::XRootWindow(deviceDisplay, deviceScreen), this->calculateWindowPositionX(), this->calculateWindowPositionY(), this->calculateWindowSizeX(), this->calculateWindowSizeY(), 1, ::XBlackPixel(deviceDisplay, deviceScreen), ::XBlackPixel(deviceDisplay, deviceScreen));
-//    XSizeHints* wmSizeHint = ::XAllocSizeHints();
-//    wmSizeHint->min_width = this->calculateWindowSizeX();
-//    wmSizeHint->min_height = this->calculateWindowSizeY();
-//    wmSizeHint->max_width = this->calculateWindowSizeX();
-//    wmSizeHint->max_height = this->calculateWindowSizeY();
-//    wmSizeHint->flags = PPosition | PSize | PMinSize | PMaxSize;
-//    ::XSetStandardProperties(deviceDisplay, *gameWindow, TetrisX11UI::windowTitle.c_str(), nullptr, None, nullptr, 0, wmSizeHint);
-//    ::XFree(wmSizeHint);
-//    Atom wmCloseWindow = ::XInternAtom(deviceDisplay, "WM_DELETE_WINDOW", false);
-//    ::XSetWMProtocols(deviceDisplay, *gameWindow, &wmCloseWindow, 1);
-//    ::XSelectInput(deviceDisplay, *gameWindow, ExposureMask | KeyPressMask);
-//    ::XMapRaised(deviceDisplay, *gameWindow);
-//}
-//
-//void TetrisX11UI::createGraphicalResource() {
-//    graphicsContext = new GC;
-//    *graphicsContext = ::XCreateGC(deviceDisplay, *gameWindow, 0, nullptr);
-//    Colormap palette = ::XDefaultColormap(deviceDisplay, deviceScreen);
-//    vector<string> colorList{"black", "white", "grey", "brown", "cyan", "yellow", "purple", "green", "red", "blue", "orange"};
-//    for (string colorString : colorList) {
-//        XColor color;
-//        if (::XAllocNamedColor(deviceDisplay, palette, colorString.c_str(), &color, &color) == 0) {
-//            cerr << "ERROR: X11 cannot find color " << colorString << " for the device display" << endl;
-//        }
-//        colorMap[colorString] = color;
-//    }
-//}
 //
 //void TetrisX11UI::renderBoardGrid() {
 //    ::XSetForeground(deviceDisplay, *graphicsContext, colorMap["brown"].pixel);

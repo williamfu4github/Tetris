@@ -4,7 +4,7 @@
 #include "Driver/GameState.hpp"
 class TetrisEngine;
 class TetrisUI;
-class TetrisData;
+struct TetrisData;
 
 class GameTetris {
 public:

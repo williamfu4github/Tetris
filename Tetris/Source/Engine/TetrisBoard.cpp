@@ -2,9 +2,9 @@
 
 using std::vector;
 
-const int TetrisBoard::boardSizeRow = 25;
 const int TetrisBoard::boardSizeColumn = 10;
 const int TetrisBoard::boardBoundaryRow = 20;
+const int TetrisBoard::boardSizeRow = 25;
 
 TetrisBoard::TetrisBoard() {
     for (int row = 0; row < TetrisBoard::boardSizeRow; row ++) {
