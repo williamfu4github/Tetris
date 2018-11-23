@@ -103,6 +103,7 @@ bool GameTetris::reachCountDownEvent() const {
 TetrisData* GameTetris::collectData() const {
     TetrisData* gameData = new TetrisData;
     gameData->gameState = gameState;
+    gameData->countDownTime = static_cast<int>(chrono::duration_cast<chrono::milliseconds>(GameTetris::countDownQuantum - countDownTimer->getAccumulatedTime()).count());
     gameEngine->collectData(gameData);
     return gameData;
 }

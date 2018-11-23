@@ -13,6 +13,7 @@ public:
 
 public:
     GameState gameState;
+    int countDownTime;
     TetrominoType activeTetromino;
     std::vector<Position> activeTetrominoPositions;
     std::vector<Position> shadowTetrominoPositions;

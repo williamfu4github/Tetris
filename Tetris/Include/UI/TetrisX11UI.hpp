@@ -1,7 +1,9 @@
 #ifndef TetrisX11UI_hpp
 #define TetrisX11UI_hpp
 
+#include "Utility/Position.hpp"
 #include "UI/TetrisUI.hpp"
+#include "Data/TetrisData.hpp"
 #include <X11/Xlib.h>
 #include <string>
 #include <unordered_map>
@@ -23,8 +25,16 @@ private:
     int calculateWindowPositionY() const;
     void drawLine(std::string color, int startX, int startY, int endX, int endY);
     void drawString(std::string text, std::string color, int fontSize, std::string font, int x, int y);
-    void renderBoardGrid();
     void renderWelcomeView();
+    void renderCountDownView(TetrisData* gameData);
+    void renderInGameView(TetrisData* gameData);
+    void renderPausedView();
+    void renderGameOverView();
+    void renderBoardGrid();
+    void renderOneBlock(Position position, std::string color);
+    void renderBoard(TetrisData* gameData);
+    void renderActiveTetromino(TetrisData* gameData);
+    void renderShadowTetromino(TetrisData* gameData);
     
 private:
     Display* deviceDisplay;
@@ -39,30 +49,8 @@ private:
     static const std::string gridLineColor;
     static const int windowMarginX;
     static const int windowMarginY;
+    static const std::string shadowColor;
+    static std::string tetrominoColorNomination(TetrominoType blockType);
 };
 
 #endif
-
-
-
-
-
-
-//    void interpretGameData() override;
-//    void renderNotStartedView();
-//    void renderCountDownView();
-//    void renderInGameView();
-//    void renderPausedView();
-//    void renderGameOverView();
-
-
-//    void renderBoard();
-//    void renderShadowTetromino();
-//    void renderActiveTetromino();
-//    void renderNextTetromino();
-//    void renderHoldingTetromino();
-//    void drawTile(int row, int column, std::string color);
-
-
-
-
