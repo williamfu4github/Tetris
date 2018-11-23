@@ -103,10 +103,10 @@ void TetrisModel::collectData(TetrisData* gameData) const {
     gameData->activeTetrominoPositions = activeTetromino->getTilePositions();
     gameData->shadowTetrominoPositions = shadowTetromino->getTilePositions();
     gameData->nextTetromino = nextTetromino->getBlockType();
-    gameData->nextTetrominoPositions = nextTetromino->getTilePositions();
+    gameData->nextTetrominoPositions = nextTetromino->getTileRelativePositions();
     if (holdingTetromino != nullptr) {
         gameData->holdingTetromino = holdingTetromino->getBlockType();
-        gameData->holdingTetrominoPositions = holdingTetromino->getTilePositions();
+        gameData->holdingTetrominoPositions = holdingTetromino->getTileRelativePositions();
     }
     else {
         gameData->holdingTetromino = TetrominoType::EMPTY;

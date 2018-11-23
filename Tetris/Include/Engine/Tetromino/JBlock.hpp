@@ -9,9 +9,9 @@ public:
     ~JBlock() override;
     TetrominoBlock* createClone() const override;
     TetrominoType getBlockType() const override;
+    std::vector<Position> getTileRelativePositions() const override;
 private:
     Position getRotationWallKick(int attemptNumber) const override;
-    std::vector<Position> getTileRelativePositions() const override;
 
 private:
     static Position rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attemptNumber);

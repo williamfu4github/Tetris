@@ -11,8 +11,8 @@ using std::vector;
 const string TetrisX11UI::windowTitle = "Tetris";
 const int TetrisX11UI::gridTileSize = 30;
 const string TetrisX11UI::gridLineColor = "brown";
-const int TetrisX11UI::windowMarginX = 60;
-const int TetrisX11UI::windowMarginY = 80;
+const int TetrisX11UI::windowMargin = 30;
+const int TetrisX11UI::dashboardSize = 140;
 const string TetrisX11UI::shadowColor = "grey";
 
 string TetrisX11UI::tetrominoColorNomination(TetrominoType blockType) {
@@ -169,11 +169,11 @@ int TetrisX11UI::calculateBoardSizeY() const {
 }
 
 int TetrisX11UI::calculateWindowSizeX() const {
-    return (this->calculateBoardSizeX() + TetrisX11UI::windowMarginX);
+    return (this->calculateBoardSizeX() + TetrisX11UI::windowMargin * 2);
 }
 
 int TetrisX11UI::calculateWindowSizeY() const {
-    return (this->calculateBoardSizeY() + TetrisX11UI::windowMarginY);
+    return (this->calculateBoardSizeY() + TetrisX11UI::windowMargin * 2 + TetrisX11UI::dashboardSize);
 }
 
 int TetrisX11UI::calculateWindowPositionX() const {
@@ -212,6 +212,7 @@ void TetrisX11UI::renderInGameView(TetrisData* gameData) {
     this->renderBoard(gameData);
     this->renderShadowTetromino(gameData);
     this->renderActiveTetromino(gameData);
+    this->renderDashboard(gameData);
 }
 
 void TetrisX11UI::renderPausedView() {
@@ -223,9 +224,9 @@ void TetrisX11UI::renderGameOverView() {
 }
 
 void TetrisX11UI::renderBoardGrid() {
-    int leftX = TetrisX11UI::windowMarginX / 2;
+    int leftX = TetrisX11UI::windowMargin;
     int rightX = leftX + this->calculateBoardSizeX() - 1;
-    int leftY = TetrisX11UI::windowMarginY / 2;
+    int leftY = TetrisX11UI::windowMargin + TetrisX11UI::dashboardSize;
     int rightY = leftY + this->calculateBoardSizeY() - 1;
     for (int i = 0; i < TetrisUI::boardSizeColumn + 1; i ++) {
         this->drawLine(TetrisX11UI::gridLineColor, leftX + i * (TetrisX11UI::gridTileSize + 1), leftY, leftX + i * (TetrisX11UI::gridTileSize + 1), rightY);
@@ -238,8 +239,8 @@ void TetrisX11UI::renderBoardGrid() {
 void TetrisX11UI::renderOneBlock(Position position, string color) {
     int row = TetrisUI::boardBoundaryRow - 1 - position.row;
     int column = position.column;
-    int leftX = TetrisX11UI::windowMarginX / 2 + 1 + column * TetrisX11UI::gridTileSize + column;
-    int leftY = TetrisX11UI::windowMarginY / 2 + 1 + row * TetrisX11UI::gridTileSize + row;
+    int leftX = TetrisX11UI::windowMargin + 1 + column * TetrisX11UI::gridTileSize + column;
+    int leftY = TetrisX11UI::windowMargin + TetrisX11UI::dashboardSize + 1 + row * TetrisX11UI::gridTileSize + row;
     ::XSetForeground(deviceDisplay, *graphicsContext, colorMap[color].pixel);
     ::XFillRectangle(deviceDisplay, *gameWindow, *graphicsContext, leftX, leftY, TetrisX11UI::gridTileSize, TetrisX11UI::gridTileSize);
 }
@@ -267,5 +268,27 @@ void TetrisX11UI::renderShadowTetromino(TetrisData* gameData) {
         if (position.row < TetrisX11UI::boardBoundaryRow) {
             this->renderOneBlock(position, TetrisX11UI::shadowColor);
         }
+    }
+}
+
+void TetrisX11UI::renderDashboard(TetrisData* gameData) {
+    this->drawString("Holding:", "white", 20, "helvetica", 40, 50);
+    this->renderNextTetromino(gameData);
+    this->drawString("Next:", "white", 20, "helvetica", 240, 50);
+    this->renderHoldingTetromino(gameData);
+}
+
+void TetrisX11UI::renderNextTetromino(TetrisData* gameData) {
+    for (Position position : gameData->nextTetrominoPositions) {
+        position.row = position.row + TetrisX11UI::boardBoundaryRow + 2;
+        position.column += 6;
+        this->renderOneBlock(position, TetrisX11UI::tetrominoColorNomination(gameData->nextTetromino));
+    }
+}
+
+void TetrisX11UI::renderHoldingTetromino(TetrisData* gameData) {
+    for (Position position : gameData->holdingTetrominoPositions) {
+        position.row = position.row + TetrisX11UI::boardBoundaryRow + 2;
+        this->renderOneBlock(position, TetrisX11UI::tetrominoColorNomination(gameData->holdingTetromino));
     }
 }

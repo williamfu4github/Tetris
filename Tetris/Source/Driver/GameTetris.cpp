@@ -81,7 +81,7 @@ void GameTetris::playGame() {
             gameState = GameState::GAME_OVER;
         }
         gameUI->renderView(this->collectData());
-        std::this_thread::sleep_for(chrono::milliseconds(10));
+        std::this_thread::sleep_for(chrono::milliseconds(15));
     }
 }
 

@@ -35,6 +35,9 @@ private:
     void renderBoard(TetrisData* gameData);
     void renderActiveTetromino(TetrisData* gameData);
     void renderShadowTetromino(TetrisData* gameData);
+    void renderDashboard(TetrisData* gameData);
+    void renderNextTetromino(TetrisData* gameData);
+    void renderHoldingTetromino(TetrisData* gameData);
     
 private:
     Display* deviceDisplay;
@@ -47,8 +50,8 @@ private:
     static const std::string windowTitle;
     static const int gridTileSize;
     static const std::string gridLineColor;
-    static const int windowMarginX;
-    static const int windowMarginY;
+    static const int windowMargin;
+    static const int dashboardSize;
     static const std::string shadowColor;
     static std::string tetrominoColorNomination(TetrominoType blockType);
 };

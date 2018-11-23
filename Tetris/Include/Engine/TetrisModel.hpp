@@ -31,7 +31,6 @@ private:
     TetrisModel::ActionResult finalizeActiveTetromino();
     TetrisModel::ActionResult handleActionProposal(TetrominoBlock* proposedBlock);
     void updateShadowTetromino();
-    void placeActiveTetromino();
     
 private:
     TetrominoSpawner* tetrominoSpawner;

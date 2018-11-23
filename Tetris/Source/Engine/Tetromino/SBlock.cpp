@@ -52,11 +52,11 @@ TetrominoType SBlock::getBlockType() const {
     return TetrominoType::S;
 }
 
+vector<Position> SBlock::getTileRelativePositions() const {
+    return SBlock::tileRelativePositions(blockPhase);
+}
+
 // PRE: attemptNumber must be in [0, 4]
 Position SBlock::getRotationWallKick(int attemptNumber) const {
     return SBlock::rotationWallKick(blockPhase, attemptNumber);
-}
-
-vector<Position> SBlock::getTileRelativePositions() const {
-    return SBlock::tileRelativePositions(blockPhase);
 }

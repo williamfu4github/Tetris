@@ -26,11 +26,11 @@ public:
     void rotateClockwise(int attemptNumber);
     void rotateCounterClockwise(int attemptNumber);
     std::vector<Position> getTilePositions() const;
+    virtual std::vector<Position> getTileRelativePositions() const = 0;
 protected:
     TetrominoBlock();
 private:
     virtual Position getRotationWallKick(int attemptNumber) const = 0;
-    virtual std::vector<Position> getTileRelativePositions() const = 0;
     
 protected:
     Position blockPosition;

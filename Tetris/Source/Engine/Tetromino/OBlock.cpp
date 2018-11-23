@@ -38,11 +38,11 @@ TetrominoType OBlock::getBlockType() const {
     return TetrominoType::O;
 }
 
+vector<Position> OBlock::getTileRelativePositions() const {
+    return OBlock::tileRelativePositions(blockPhase);
+}
+
 // PRE: attemptNumber must be in [0, 4]
 Position OBlock::getRotationWallKick(int attemptNumber) const {
     return OBlock::rotationWallKick(attemptNumber);
-}
-
-vector<Position> OBlock::getTileRelativePositions() const {
-    return OBlock::tileRelativePositions(blockPhase);
 }
