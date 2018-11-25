@@ -80,7 +80,6 @@ void TetrisBoard::clearFullRows() {
 
 void TetrisBoard::collectData(TetrisData* gameData) const {
     gameData->gameBoard = gameBoard;
-    gameData->gameBoard.resize(TetrisBoard::boardBoundaryRow);
 }
 
 // NOTE: position may be off board
