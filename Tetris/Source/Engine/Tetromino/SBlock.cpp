@@ -3,8 +3,8 @@
 using std::vector;
 
 // NOTE: T,S,Z,J,L blocks have same wall kick, I,O blocks are different
-// PRE: attemptNumber must be in [0, 4]
-Position SBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attemptNumber) {
+// PRE: attempt must be in [0, 4]
+Position SBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int attempt) {
     vector<Position> wallKicks;
     switch (blockPhase) {
         case TetrominoBlock::TetrominoPhase::UP:
@@ -20,7 +20,7 @@ Position SBlock::rotationWallKick(TetrominoBlock::TetrominoPhase blockPhase, int
             wallKicks = {Position(0, 0), Position(0, -1), Position(-1, -1), Position(2, 0), Position(2, -1)};
             break;
     }
-    return wallKicks[attemptNumber];
+    return wallKicks[attempt];
 }
 
 vector<Position> SBlock::tileRelativePositions(TetrominoBlock::TetrominoPhase blockPhase) {
@@ -56,7 +56,7 @@ vector<Position> SBlock::getTileRelativePositions() const {
     return SBlock::tileRelativePositions(blockPhase);
 }
 
-// PRE: attemptNumber must be in [0, 4]
-Position SBlock::getRotationWallKick(int attemptNumber) const {
-    return SBlock::rotationWallKick(blockPhase, attemptNumber);
+// PRE: attempt must be in [0, 4]
+Position SBlock::getRotationWallKick(int attempt) const {
+    return SBlock::rotationWallKick(blockPhase, attempt);
 }

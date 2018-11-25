@@ -25,9 +25,9 @@ void TetrominoBlock::shiftUp() {
     blockPosition.row ++;
 }
 
-// PRE: attemptNumber must be in [0, 4]
-void TetrominoBlock::rotateClockwise(int attemptNumber) {
-    Position wallKick = this->getRotationWallKick(attemptNumber);
+// PRE: attempt must be in [0, 4]
+void TetrominoBlock::rotateClockwise(int attempt) {
+    Position wallKick = this->getRotationWallKick(attempt);
     blockPosition.row += wallKick.row;
     blockPosition.column += wallKick.column;
     switch (blockPhase) {
@@ -46,9 +46,9 @@ void TetrominoBlock::rotateClockwise(int attemptNumber) {
     }
 }
 
-// PRE: attemptNumber must be in [0, 4]
-void TetrominoBlock::rotateCounterClockwise(int attemptNumber) {
-    Position wallKick = this->getRotationWallKick(attemptNumber);
+// PRE: attempt must be in [0, 4]
+void TetrominoBlock::rotateCounterClockwise(int attempt) {
+    Position wallKick = this->getRotationWallKick(attempt);
     blockPosition.row -= wallKick.row;
     blockPosition.column -= wallKick.column;
     switch (blockPhase) {

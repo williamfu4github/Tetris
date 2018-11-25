@@ -66,11 +66,13 @@ TetrisUI::ControllerEvent TetrisX11UI::getNextEvent() {
         // TODO remove expose event
         case Expose:
             return TetrisUI::ControllerEvent::NO_EVENT;
-        case ClientMessage:
-            if (event.xclient.data.l[0] == ::XInternAtom(deviceDisplay, "WM_DELETE_WINDOW", false)) {
+        case ClientMessage: {
+            unsigned long code = static_cast<unsigned long>(event.xclient.data.l[0]);
+            if (code == ::XInternAtom(deviceDisplay, "WM_DELETE_WINDOW", false)) {
                 return TetrisUI::ControllerEvent::WINDOW_CLOSE;
             }
             break;
+        }
         case KeyPress: {
             KeySym key = ::XLookupKeysym(&event.xkey, 0);
             if (key == XK_q) {
@@ -102,6 +104,9 @@ TetrisUI::ControllerEvent TetrisX11UI::getNextEvent() {
             }
             break;
         }
+        // TODO receive only when auto-repeat happens, need to remove in future
+        case KeyRelease:
+            break;
     }
     return TetrisUI::ControllerEvent::NO_EVENT;
 }

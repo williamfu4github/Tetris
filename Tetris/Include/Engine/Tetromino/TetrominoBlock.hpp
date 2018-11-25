@@ -23,14 +23,14 @@ public:
     void shiftRight();
     void shiftDown();
     void shiftUp();
-    void rotateClockwise(int attemptNumber);
-    void rotateCounterClockwise(int attemptNumber);
+    void rotateClockwise(int attempt);
+    void rotateCounterClockwise(int attempt);
     std::vector<Position> getTilePositions() const;
     virtual std::vector<Position> getTileRelativePositions() const = 0;
 protected:
     TetrominoBlock();
 private:
-    virtual Position getRotationWallKick(int attemptNumber) const = 0;
+    virtual Position getRotationWallKick(int attempt) const = 0;
     
 protected:
     Position blockPosition;

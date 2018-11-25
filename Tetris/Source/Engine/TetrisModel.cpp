@@ -51,9 +51,9 @@ TetrisModel::ActionResult TetrisModel::shiftActiveTetrominoRight() {
 
 // return SUCCESS or FAILURE
 TetrisModel::ActionResult TetrisModel::rotateActiveTetrominoClockwise() {
-    for (int attemptNumber = 0; attemptNumber <= 4; attemptNumber ++) {
+    for (int attempt = 0; attempt <= 4; attempt ++) {
         TetrominoBlock* proposedBlock = activeTetromino->createClone();
-        proposedBlock->rotateClockwise(attemptNumber);
+        proposedBlock->rotateClockwise(attempt);
         if (this->handleActionProposal(proposedBlock) == TetrisModel::ActionResult::SUCCESS) {
             return TetrisModel::ActionResult::SUCCESS;
         }
@@ -63,9 +63,9 @@ TetrisModel::ActionResult TetrisModel::rotateActiveTetrominoClockwise() {
 
 // return SUCCESS or FAILURE
 TetrisModel::ActionResult TetrisModel::rotateActiveTetrominoCounterClockwise() {
-    for (int attemptNumber = 0; attemptNumber <= 4; attemptNumber ++) {
+    for (int attempt = 0; attempt <= 4; attempt ++) {
         TetrominoBlock* proposedBlock = activeTetromino->createClone();
-        proposedBlock->rotateCounterClockwise(attemptNumber);
+        proposedBlock->rotateCounterClockwise(attempt);
         if (this->handleActionProposal(proposedBlock) == TetrisModel::ActionResult::SUCCESS) {
             return TetrisModel::ActionResult::SUCCESS;
         }
@@ -90,6 +90,7 @@ TetrisModel::ActionResult TetrisModel::dropActiveTetromino() {
     if (this->finalizeActiveTetromino() == TetrisModel::ActionResult::GAME_OVER) {
         return TetrisModel::ActionResult::GAME_OVER;
     }
+    delete activeTetromino;
     activeTetromino = nextTetromino;
     nextTetromino = tetrominoSpawner->createOneTetromino();
     if (this->initializeActiveTetromino() == TetrisModel::ActionResult::GAME_OVER) {
@@ -131,7 +132,6 @@ TetrisModel::ActionResult TetrisModel::finalizeActiveTetromino() {
         return TetrisModel::ActionResult::GAME_OVER;
     }
     gameBoard->setTilesState(activeTetromino->getTilePositions(), activeTetromino->getBlockType());
-    delete activeTetromino;
     // TODO update score/stat
     gameBoard->clearFullRows();
     return TetrisModel::ActionResult::SUCCESS;
