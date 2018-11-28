@@ -10,7 +10,7 @@ const chrono::milliseconds TetrisEngine::lockDelayQuantum(500);
 TetrisEngine::TetrisEngine():
     gameStatus(TetrisEngine::GameStatus::NOT_STARTED),
     temporalTask(TetrisEngine::TemporalTask::GRAVITATION),
-    allowHoldAction(true) {
+    holdStatus(TetrisEngine::HoldStatus::AVAILABLE) {
     gameTimeTimer = new Timer;
     temporalTaskTimer = new Timer;
     gameModel = new TetrisModel;
@@ -109,8 +109,8 @@ void TetrisEngine::rotateActiveTetrominoCounterClockwise() {
 }
 
 void TetrisEngine::holdActiveTetromino() {
-    if ((gameStatus == TetrisEngine::GameStatus::IN_GAME) && allowHoldAction) {
-        allowHoldAction = false;
+    if ((gameStatus == TetrisEngine::GameStatus::IN_GAME) && (holdStatus == TetrisEngine::HoldStatus::AVAILABLE)) {
+        holdStatus = TetrisEngine::HoldStatus::COOL_DOWN;
         if (gameModel->holdActiveTetromino() == TetrisModel::ActionResult::SUCCESS) {
             this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
         }
@@ -124,7 +124,7 @@ void TetrisEngine::holdActiveTetromino() {
 
 void TetrisEngine::dropActiveTetromino() {
     if (gameStatus == TetrisEngine::GameStatus::IN_GAME) {
-        allowHoldAction = true;
+        holdStatus = TetrisEngine::HoldStatus::AVAILABLE;
         if (gameModel->dropActiveTetromino() == TetrisModel::ActionResult::SUCCESS) {
             this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
         }
