@@ -38,7 +38,7 @@ void TetrominoSpawner::emptyRandomBag() {
 }
 
 // PRE: randomBag must be empty
-// NOTE: 7-bag random of blocks
+// NOTE: 7-bag random system
 void TetrominoSpawner::fillRandomBag() {
     randomBag.push_back(new IBlock);
     randomBag.push_back(new OBlock);

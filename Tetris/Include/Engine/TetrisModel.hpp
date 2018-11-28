@@ -25,6 +25,7 @@ public:
     TetrisModel::ActionResult rotateActiveTetrominoCounterClockwise();
     TetrisModel::ActionResult holdActiveTetromino();
     TetrisModel::ActionResult dropActiveTetromino();
+    bool checkActiveTetrominoInAir() const;
     void collectData(TetrisData* gameData) const;
 private:
     TetrisModel::ActionResult initializeActiveTetromino();

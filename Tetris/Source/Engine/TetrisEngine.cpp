@@ -10,7 +10,7 @@ const chrono::milliseconds TetrisEngine::lockDelayQuantum(500);
 TetrisEngine::TetrisEngine():
     gameStatus(TetrisEngine::GameStatus::NOT_STARTED),
     temporalTask(TetrisEngine::TemporalTask::GRAVITATION),
-    holdStatus(TetrisEngine::HoldStatus::AVAILABLE) {
+    allowHoldAction(true) {
     gameTimeTimer = new Timer;
     temporalTaskTimer = new Timer;
     gameModel = new TetrisModel;
@@ -43,12 +43,7 @@ void TetrisEngine::performOneFrame() {
         if (this->reachTemporalTaskEvent()) {
             switch (temporalTask) {
                 case TetrisEngine::TemporalTask::GRAVITATION:
-                    if (gameModel->shiftActiveTetrominoDown() == TetrisModel::ActionResult::SUCCESS) {
-                        this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
-                    }
-                    else {
-                        this->startNewTemporalTask(TetrisEngine::TemporalTask::LOCK_DELAY);
-                    }
+                    this->shiftActiveTetrominoDown();
                     break;
                 case TetrisEngine::TemporalTask::LOCK_DELAY:
                     this->dropActiveTetromino();
@@ -61,9 +56,7 @@ void TetrisEngine::performOneFrame() {
 void TetrisEngine::shiftActiveTetrominoDown() {
     if (gameStatus == TetrisEngine::GameStatus::IN_GAME) {
         if (gameModel->shiftActiveTetrominoDown() == TetrisModel::ActionResult::SUCCESS) {
-            if (temporalTask == TetrisEngine::TemporalTask::LOCK_DELAY) {
-                this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
-            }
+            this->updateTemporalTask(false);
         }
     }
 }
@@ -71,9 +64,7 @@ void TetrisEngine::shiftActiveTetrominoDown() {
 void TetrisEngine::shiftActiveTetrominoLeft() {
     if (gameStatus == TetrisEngine::GameStatus::IN_GAME) {
         if (gameModel->shiftActiveTetrominoLeft() == TetrisModel::ActionResult::SUCCESS) {
-            if (temporalTask == TetrisEngine::TemporalTask::LOCK_DELAY) {
-                this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
-            }
+            this->updateTemporalTask(true);
         }
     }
 }
@@ -81,9 +72,7 @@ void TetrisEngine::shiftActiveTetrominoLeft() {
 void TetrisEngine::shiftActiveTetrominoRight() {
     if (gameStatus == TetrisEngine::GameStatus::IN_GAME) {
         if (gameModel->shiftActiveTetrominoRight() == TetrisModel::ActionResult::SUCCESS) {
-            if (temporalTask == TetrisEngine::TemporalTask::LOCK_DELAY) {
-                this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
-            }
+            this->updateTemporalTask(true);
         }
     }
 }
@@ -91,9 +80,7 @@ void TetrisEngine::shiftActiveTetrominoRight() {
 void TetrisEngine::rotateActiveTetrominoClockwise() {
     if (gameStatus == TetrisEngine::GameStatus::IN_GAME) {
         if (gameModel->rotateActiveTetrominoClockwise() == TetrisModel::ActionResult::SUCCESS) {
-            if (temporalTask == TetrisEngine::TemporalTask::LOCK_DELAY) {
-                this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
-            }
+            this->updateTemporalTask(true);
         }
     }
 }
@@ -101,18 +88,16 @@ void TetrisEngine::rotateActiveTetrominoClockwise() {
 void TetrisEngine::rotateActiveTetrominoCounterClockwise() {
     if (gameStatus == TetrisEngine::GameStatus::IN_GAME) {
         if (gameModel->rotateActiveTetrominoCounterClockwise() == TetrisModel::ActionResult::SUCCESS) {
-            if (temporalTask == TetrisEngine::TemporalTask::LOCK_DELAY) {
-                this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
-            }
+            this->updateTemporalTask(true);
         }
     }
 }
 
 void TetrisEngine::holdActiveTetromino() {
-    if ((gameStatus == TetrisEngine::GameStatus::IN_GAME) && (holdStatus == TetrisEngine::HoldStatus::AVAILABLE)) {
-        holdStatus = TetrisEngine::HoldStatus::COOL_DOWN;
+    if ((gameStatus == TetrisEngine::GameStatus::IN_GAME) && allowHoldAction) {
+        allowHoldAction = false;
         if (gameModel->holdActiveTetromino() == TetrisModel::ActionResult::SUCCESS) {
-            this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
+            this->updateTemporalTask(false);
         }
         else {
             gameStatus = TetrisEngine::GameStatus::GAME_OVER;
@@ -124,9 +109,9 @@ void TetrisEngine::holdActiveTetromino() {
 
 void TetrisEngine::dropActiveTetromino() {
     if (gameStatus == TetrisEngine::GameStatus::IN_GAME) {
-        holdStatus = TetrisEngine::HoldStatus::AVAILABLE;
+        allowHoldAction = true;
         if (gameModel->dropActiveTetromino() == TetrisModel::ActionResult::SUCCESS) {
-            this->startNewTemporalTask(TetrisEngine::TemporalTask::GRAVITATION);
+            this->updateTemporalTask(false);
         }
         else {
             gameStatus = TetrisEngine::GameStatus::GAME_OVER;
@@ -144,10 +129,19 @@ void TetrisEngine::collectData(TetrisData* gameData) const {
     gameModel->collectData(gameData);
 }
 
-void TetrisEngine::startNewTemporalTask(TetrisEngine::TemporalTask newTask) {
-    temporalTaskTimer->resetTimer();
-    temporalTask = newTask;
-    temporalTaskTimer->startTimer();
+void TetrisEngine::updateTemporalTask(bool carryGravity) {
+    if (gameModel->checkActiveTetrominoInAir()) {
+        if (!carryGravity || (temporalTask == TetrisEngine::TemporalTask::LOCK_DELAY)) {
+            temporalTaskTimer->resetTimer();
+            temporalTask = TetrisEngine::TemporalTask::GRAVITATION;
+            temporalTaskTimer->startTimer();
+        }
+    }
+    else {
+        temporalTaskTimer->resetTimer();
+        temporalTask = TetrisEngine::TemporalTask::LOCK_DELAY;
+        temporalTaskTimer->startTimer();
+    }
 }
 
 bool TetrisEngine::reachTemporalTaskEvent() const {

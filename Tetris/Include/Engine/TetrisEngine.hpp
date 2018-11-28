@@ -19,10 +19,6 @@ private:
         GRAVITATION,
         LOCK_DELAY
     };
-    enum class HoldStatus {
-        AVAILABLE,
-        COOL_DOWN
-    };
     
 public:
     TetrisEngine();
@@ -40,16 +36,16 @@ public:
     TetrisEngine::GameStatus getGameStatus() const;
     void collectData(TetrisData* gameData) const;
 private:
-    void startNewTemporalTask(TetrisEngine::TemporalTask newTask);
+    void updateTemporalTask(bool carryGravity);
     bool reachTemporalTaskEvent() const;
     
 private:
     TetrisEngine::GameStatus gameStatus;
     TetrisEngine::TemporalTask temporalTask;
-    TetrisEngine::HoldStatus holdStatus;
     Timer* gameTimeTimer;
     Timer* temporalTaskTimer;
     TetrisModel* gameModel;
+    bool allowHoldAction;
     
 private:
     static const std::chrono::milliseconds gravitationQuantum;

@@ -6,6 +6,8 @@ public:
     Position();
     Position(int row, int column);
     ~Position();
+    bool operator ==(const Position& other) const;
+    bool operator !=(const Position& other) const;
     
 public:
     int row;

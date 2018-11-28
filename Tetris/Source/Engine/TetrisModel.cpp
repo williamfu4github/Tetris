@@ -99,6 +99,10 @@ TetrisModel::ActionResult TetrisModel::dropActiveTetromino() {
     return TetrisModel::ActionResult::SUCCESS;
 }
 
+bool TetrisModel::checkActiveTetrominoInAir() const {
+    return (activeTetromino->getTilePositions() != shadowTetromino->getTilePositions());
+}
+
 void TetrisModel::collectData(TetrisData* gameData) const {
     gameData->activeTetromino = activeTetromino->getBlockType();
     gameData->activeTetrominoPositions = activeTetromino->getTilePositions();
@@ -116,6 +120,7 @@ void TetrisModel::collectData(TetrisData* gameData) const {
 }
 
 // return SUCCESS or GAME_OVER
+// NOTE: game over by block-out
 TetrisModel::ActionResult TetrisModel::initializeActiveTetromino() {
     activeTetromino->setBlockPosition(TetrisModel::tetrominoInitialPosition());
     activeTetromino->setBlockPhase(TetrominoBlock::tetrominoInitialPhase);
@@ -128,6 +133,7 @@ TetrisModel::ActionResult TetrisModel::initializeActiveTetromino() {
 }
 
 // return SUCCESS or GAME_OVER
+// NOTE: game over by lock-out
 TetrisModel::ActionResult TetrisModel::finalizeActiveTetromino() {
     if (gameBoard->checkTilesOutside(activeTetromino->getTilePositions())) {
         return TetrisModel::ActionResult::GAME_OVER;
