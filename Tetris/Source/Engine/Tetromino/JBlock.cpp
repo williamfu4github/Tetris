@@ -52,6 +52,10 @@ TetrominoType JBlock::getBlockType() const {
     return TetrominoType::J;
 }
 
+vector<Position> JBlock::getTileCanonicalPositions() const {
+    return JBlock::tileRelativePositions(TetrominoBlock::tetrominoInitialPhase);
+}
+
 vector<Position> JBlock::getTileRelativePositions() const {
     return JBlock::tileRelativePositions(blockPhase);
 }

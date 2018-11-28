@@ -52,6 +52,10 @@ TetrominoType ZBlock::getBlockType() const {
     return TetrominoType::Z;
 }
 
+vector<Position> ZBlock::getTileCanonicalPositions() const {
+    return ZBlock::tileRelativePositions(TetrominoBlock::tetrominoInitialPhase);
+}
+
 vector<Position> ZBlock::getTileRelativePositions() const {
     return ZBlock::tileRelativePositions(blockPhase);
 }

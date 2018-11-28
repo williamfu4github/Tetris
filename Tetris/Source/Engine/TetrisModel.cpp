@@ -104,10 +104,10 @@ void TetrisModel::collectData(TetrisData* gameData) const {
     gameData->activeTetrominoPositions = activeTetromino->getTilePositions();
     gameData->shadowTetrominoPositions = shadowTetromino->getTilePositions();
     gameData->nextTetromino = nextTetromino->getBlockType();
-    gameData->nextTetrominoPositions = nextTetromino->getTileRelativePositions();
+    gameData->nextTetrominoPositions = nextTetromino->getTileCanonicalPositions();
     if (holdingTetromino != nullptr) {
         gameData->holdingTetromino = holdingTetromino->getBlockType();
-        gameData->holdingTetrominoPositions = holdingTetromino->getTileRelativePositions();
+        gameData->holdingTetrominoPositions = holdingTetromino->getTileCanonicalPositions();
     }
     else {
         gameData->holdingTetromino = TetrominoType::EMPTY;
@@ -118,6 +118,7 @@ void TetrisModel::collectData(TetrisData* gameData) const {
 // return SUCCESS or GAME_OVER
 TetrisModel::ActionResult TetrisModel::initializeActiveTetromino() {
     activeTetromino->setBlockPosition(TetrisModel::tetrominoInitialPosition());
+    activeTetromino->setBlockPhase(TetrominoBlock::tetrominoInitialPhase);
     this->updateShadowTetromino();
     if (!gameBoard->checkTilesEmpty(activeTetromino->getTilePositions())) {
         return TetrisModel::ActionResult::GAME_OVER;

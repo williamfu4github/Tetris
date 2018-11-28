@@ -9,8 +9,9 @@ public:
     ~ZBlock() override;
     TetrominoBlock* createClone() const override;
     TetrominoType getBlockType() const override;
-    std::vector<Position> getTileRelativePositions() const override;
+    std::vector<Position> getTileCanonicalPositions() const override;
 private:
+    std::vector<Position> getTileRelativePositions() const override;
     Position getRotationWallKick(int attempt) const override;
 
 private:

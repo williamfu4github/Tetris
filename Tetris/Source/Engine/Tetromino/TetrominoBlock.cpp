@@ -2,11 +2,17 @@
 
 using std::vector;
 
+const TetrominoBlock::TetrominoPhase TetrominoBlock::tetrominoInitialPhase(TetrominoBlock::TetrominoPhase::UP);
+
 TetrominoBlock::~TetrominoBlock() {
 }
 
 void TetrominoBlock::setBlockPosition(Position newPosition) {
     blockPosition = newPosition;
+}
+
+void TetrominoBlock::setBlockPhase(TetrominoBlock::TetrominoPhase newPhase) {
+    blockPhase = newPhase;
 }
 
 void TetrominoBlock::shiftLeft() {
@@ -78,5 +84,5 @@ vector<Position> TetrominoBlock::getTilePositions() const {
 
 TetrominoBlock::TetrominoBlock():
     blockPosition(0, 0),
-    blockPhase(TetrominoBlock::TetrominoPhase::UP) {
+    blockPhase(TetrominoBlock::tetrominoInitialPhase) {
 }

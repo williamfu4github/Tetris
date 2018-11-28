@@ -52,6 +52,10 @@ TetrominoType IBlock::getBlockType() const {
     return TetrominoType::I;
 }
 
+vector<Position> IBlock::getTileCanonicalPositions() const {
+    return IBlock::tileRelativePositions(TetrominoBlock::tetrominoInitialPhase);
+}
+
 vector<Position> IBlock::getTileRelativePositions() const {
     return IBlock::tileRelativePositions(blockPhase);
 }

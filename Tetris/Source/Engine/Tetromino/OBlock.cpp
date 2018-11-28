@@ -38,6 +38,10 @@ TetrominoType OBlock::getBlockType() const {
     return TetrominoType::O;
 }
 
+vector<Position> OBlock::getTileCanonicalPositions() const {
+    return OBlock::tileRelativePositions(TetrominoBlock::tetrominoInitialPhase);
+}
+
 vector<Position> OBlock::getTileRelativePositions() const {
     return OBlock::tileRelativePositions(blockPhase);
 }
