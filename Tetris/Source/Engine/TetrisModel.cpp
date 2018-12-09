@@ -168,3 +168,7 @@ void TetrisModel::updateShadowTetromino() {
     while (gameBoard->checkTilesEmpty(shadowTetromino->getTilePositions()));
     shadowTetromino->shiftUp();
 }
+
+void TetrisModel::linkWithGameStatistics(TetrisStatistics* gameStatistics) {
+    this->gameStatistics = gameStatistics;
+}

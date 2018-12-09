@@ -9,8 +9,7 @@ const int TetrisBoard::boardSizeRow = 25;
 
 TetrisBoard::TetrisBoard() {
     for (int row = 0; row < TetrisBoard::boardSizeRow; row ++) {
-        gameBoard.push_back(vector<TetrominoType>{});
-        gameBoard.back().resize(TetrisBoard::boardSizeColumn, TetrominoType::EMPTY);
+        gameBoard.push_back(vector<TetrominoType>(TetrisBoard::boardSizeColumn, TetrominoType::EMPTY));
         rowOccupancies.push_back(0);
     }
 }

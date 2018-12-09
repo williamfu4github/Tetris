@@ -17,12 +17,12 @@ public:
 private:
     void createGameWindow();
     void createGraphicalResource();
-    int calculateBoardSizeX() const;
-    int calculateBoardSizeY() const;
-    int calculateWindowSizeX() const;
-    int calculateWindowSizeY() const;
-    int calculateWindowPositionX() const;
-    int calculateWindowPositionY() const;
+    int getBoardSizeX() const;
+    int getBoardSizeY() const;
+    int getWindowSizeX() const;
+    int getWindowSizeY() const;
+    int getWindowPositionX() const;
+    int getWindowPositionY() const;
     void drawLine(std::string color, int startX, int startY, int endX, int endY);
     void drawString(std::string text, std::string color, int fontSize, std::string font, int x, int y);
     void renderWelcomeView();

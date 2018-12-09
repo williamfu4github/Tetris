@@ -135,12 +135,12 @@ void TetrisX11UI::renderView(TetrisData* gameData) {
 
 void TetrisX11UI::createGameWindow() {
     gameWindow = new Window;
-    *gameWindow = ::XCreateSimpleWindow(deviceDisplay, ::XRootWindow(deviceDisplay, deviceScreen), this->calculateWindowPositionX(), this->calculateWindowPositionY(), this->calculateWindowSizeX(), this->calculateWindowSizeY(), 1, ::XBlackPixel(deviceDisplay, deviceScreen), ::XBlackPixel(deviceDisplay, deviceScreen));
+    *gameWindow = ::XCreateSimpleWindow(deviceDisplay, ::XRootWindow(deviceDisplay, deviceScreen), this->getWindowPositionX(), this->getWindowPositionY(), this->getWindowSizeX(), this->getWindowSizeY(), 1, ::XBlackPixel(deviceDisplay, deviceScreen), ::XBlackPixel(deviceDisplay, deviceScreen));
     XSizeHints* wmSizeHint = ::XAllocSizeHints();
-    wmSizeHint->min_width = this->calculateWindowSizeX();
-    wmSizeHint->min_height = this->calculateWindowSizeY();
-    wmSizeHint->max_width = this->calculateWindowSizeX();
-    wmSizeHint->max_height = this->calculateWindowSizeY();
+    wmSizeHint->min_width = this->getWindowSizeX();
+    wmSizeHint->min_height = this->getWindowSizeY();
+    wmSizeHint->max_width = this->getWindowSizeX();
+    wmSizeHint->max_height = this->getWindowSizeY();
     wmSizeHint->flags = PPosition | PSize | PMinSize | PMaxSize;
     ::XSetStandardProperties(deviceDisplay, *gameWindow, TetrisX11UI::windowTitle.c_str(), nullptr, None, nullptr, 0, wmSizeHint);
     ::XFree(wmSizeHint);
@@ -165,28 +165,28 @@ void TetrisX11UI::createGraphicalResource() {
     }
 }
 
-int TetrisX11UI::calculateBoardSizeX() const {
+int TetrisX11UI::getBoardSizeX() const {
     return (TetrisX11UI::gridTileSize + 1) * TetrisUI::boardSizeColumn + 1;
 }
 
-int TetrisX11UI::calculateBoardSizeY() const {
+int TetrisX11UI::getBoardSizeY() const {
     return (TetrisX11UI::gridTileSize + 1) * TetrisUI::boardBoundaryRow + 1;
 }
 
-int TetrisX11UI::calculateWindowSizeX() const {
-    return (this->calculateBoardSizeX() + TetrisX11UI::windowMargin * 2);
+int TetrisX11UI::getWindowSizeX() const {
+    return (this->getBoardSizeX() + TetrisX11UI::windowMargin * 2);
 }
 
-int TetrisX11UI::calculateWindowSizeY() const {
-    return (this->calculateBoardSizeY() + TetrisX11UI::windowMargin * 2 + TetrisX11UI::dashboardSize);
+int TetrisX11UI::getWindowSizeY() const {
+    return (this->getBoardSizeY() + TetrisX11UI::windowMargin * 2 + TetrisX11UI::dashboardSize);
 }
 
-int TetrisX11UI::calculateWindowPositionX() const {
-    return (::XDisplayWidth(deviceDisplay, deviceScreen) - this->calculateWindowSizeX()) / 2;
+int TetrisX11UI::getWindowPositionX() const {
+    return (::XDisplayWidth(deviceDisplay, deviceScreen) - this->getWindowSizeX()) / 2;
 }
 
-int TetrisX11UI::calculateWindowPositionY() const {
-    return (::XDisplayHeight(deviceDisplay, deviceScreen) - this->calculateWindowSizeY()) / 2;
+int TetrisX11UI::getWindowPositionY() const {
+    return (::XDisplayHeight(deviceDisplay, deviceScreen) - this->getWindowSizeY()) / 2;
 }
 
 void TetrisX11UI::drawLine(string color, int startX, int startY, int endX, int endY) {
@@ -230,9 +230,9 @@ void TetrisX11UI::renderGameOverView() {
 
 void TetrisX11UI::renderBoardGrid() {
     int leftX = TetrisX11UI::windowMargin;
-    int rightX = leftX + this->calculateBoardSizeX() - 1;
+    int rightX = leftX + this->getBoardSizeX() - 1;
     int leftY = TetrisX11UI::windowMargin + TetrisX11UI::dashboardSize;
-    int rightY = leftY + this->calculateBoardSizeY() - 1;
+    int rightY = leftY + this->getBoardSizeY() - 1;
     for (int i = 0; i < TetrisUI::boardSizeColumn + 1; i ++) {
         this->drawLine(TetrisX11UI::gridLineColor, leftX + i * (TetrisX11UI::gridTileSize + 1), leftY, leftX + i * (TetrisX11UI::gridTileSize + 1), rightY);
     }

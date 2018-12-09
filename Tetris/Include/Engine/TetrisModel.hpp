@@ -5,6 +5,7 @@
 class TetrominoSpawner;
 class TetrisBoard;
 class TetrominoBlock;
+class TetrisStatistics;
 struct TetrisData;
 
 class TetrisModel {
@@ -43,6 +44,11 @@ private:
     
 private:
     static Position tetrominoInitialPosition();
+    
+public:
+    void linkWithGameStatistics(TetrisStatistics* gameStatistics);
+private:
+    TetrisStatistics* gameStatistics;
 };
 
 #endif

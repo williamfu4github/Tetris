@@ -2,6 +2,7 @@
 
 #include "Utility/Timer.hpp"
 #include "Engine/TetrisModel.hpp"
+#include "Engine/TetrisStatistics.hpp"
 namespace chrono = std::chrono;
 
 const chrono::milliseconds TetrisEngine::gravitationQuantum(1000);
@@ -14,12 +15,14 @@ TetrisEngine::TetrisEngine():
     gameTimeTimer = new Timer;
     temporalTaskTimer = new Timer;
     gameModel = new TetrisModel;
+    gameStatistics = new TetrisStatistics;
 }
 
 TetrisEngine::~TetrisEngine() {
     delete gameTimeTimer;
     delete temporalTaskTimer;
     delete gameModel;
+    delete gameStatistics;
 }
 
 void TetrisEngine::startGame() {
@@ -129,6 +132,7 @@ void TetrisEngine::collectData(TetrisData* gameData) const {
     gameModel->collectData(gameData);
 }
 
+// NOTE: lock delay mechanism with Infinity
 void TetrisEngine::updateTemporalTask(bool carryGravity) {
     if (gameModel->checkActiveTetrominoInAir()) {
         if (!carryGravity || (temporalTask == TetrisEngine::TemporalTask::LOCK_DELAY)) {

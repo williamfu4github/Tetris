@@ -4,6 +4,7 @@
 #include <chrono>
 class TetrisModel;
 class Timer;
+class TetrisStatistics;
 struct TetrisData;
 
 class TetrisEngine {
@@ -45,6 +46,7 @@ private:
     Timer* gameTimeTimer;
     Timer* temporalTaskTimer;
     TetrisModel* gameModel;
+    TetrisStatistics* gameStatistics;
     bool allowHoldAction;
     
 private:
