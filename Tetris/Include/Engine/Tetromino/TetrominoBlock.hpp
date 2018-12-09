@@ -13,6 +13,8 @@ public:
         DOWN,
         LEFT
     };
+public:
+    static const TetrominoBlock::TetrominoPhase tetrominoInitialPhase;
     
 public:
     virtual ~TetrominoBlock() = 0;
@@ -37,9 +39,6 @@ private:
 protected:
     Position blockPosition;
     TetrominoBlock::TetrominoPhase blockPhase;
-    
-public:
-    static const TetrominoBlock::TetrominoPhase tetrominoInitialPhase;
 };
 
 #endif

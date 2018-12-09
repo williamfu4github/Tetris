@@ -9,6 +9,15 @@
 #include <unordered_map>
 
 class TetrisX11UI : public TetrisUI {
+private:
+    static const std::string windowTitle;
+    static const int gridTileSize;
+    static const std::string gridLineColor;
+    static const int windowMargin;
+    static const int dashboardSize;
+    static const std::string shadowColor;
+    static std::string tetrominoColorNomination(TetrominoType blockType);
+
 public:
     TetrisX11UI();
     ~TetrisX11UI() override;
@@ -45,15 +54,6 @@ private:
     Window* gameWindow;
     GC* graphicsContext;
     std::unordered_map<std::string, XColor> colorMap;
-    
-private:
-    static const std::string windowTitle;
-    static const int gridTileSize;
-    static const std::string gridLineColor;
-    static const int windowMargin;
-    static const int dashboardSize;
-    static const std::string shadowColor;
-    static std::string tetrominoColorNomination(TetrominoType blockType);
 };
 
 #endif

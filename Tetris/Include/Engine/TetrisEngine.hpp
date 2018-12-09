@@ -20,6 +20,9 @@ private:
         GRAVITATION,
         LOCK_DELAY
     };
+private:
+    static const std::chrono::milliseconds gravitationQuantum;
+    static const std::chrono::milliseconds lockDelayQuantum;
     
 public:
     TetrisEngine();
@@ -48,10 +51,6 @@ private:
     TetrisModel* gameModel;
     TetrisStatistics* gameStatistics;
     bool allowHoldAction;
-    
-private:
-    static const std::chrono::milliseconds gravitationQuantum;
-    static const std::chrono::milliseconds lockDelayQuantum;
 };
 
 #endif

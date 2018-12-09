@@ -4,6 +4,10 @@
 #include "Engine/Tetromino/TetrominoBlock.hpp"
 
 class OBlock : public TetrominoBlock {
+private:
+    static Position rotationWallKick(int attempt);
+    static std::vector<Position> tileRelativePositions(TetrominoBlock::TetrominoPhase blockPhase);
+
 public:
     OBlock();
     ~OBlock() override;
@@ -13,10 +17,6 @@ public:
 private:
     std::vector<Position> getTileRelativePositions() const override;
     Position getRotationWallKick(int attempt) const override;
-    
-private:
-    static Position rotationWallKick(int attempt);
-    static std::vector<Position> tileRelativePositions(TetrominoBlock::TetrominoPhase blockPhase);
 };
 
 #endif

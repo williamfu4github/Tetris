@@ -8,6 +8,12 @@ struct TetrisData;
 
 class TetrisBoard {
 public:
+    static const int boardSizeColumn;
+    static const int boardBoundaryRow;
+private:
+    static const int boardSizeRow;
+
+public:
     TetrisBoard();
     ~TetrisBoard();
     bool checkTilesEmpty(std::vector<Position> tilePositions) const;
@@ -22,12 +28,6 @@ private:
 private:
     std::vector<std::vector<TetrominoType>> gameBoard;
     std::vector<int> rowOccupancies;
-    
-public:
-    static const int boardSizeColumn;
-    static const int boardBoundaryRow;
-private:
-    static const int boardSizeRow;
 };
 
 #endif

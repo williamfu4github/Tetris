@@ -18,17 +18,16 @@ public:
         KEY_Z,
         KEY_C
     };
-    
+protected:
+    static const int boardSizeColumn;
+    static const int boardBoundaryRow;
+
 public:
     virtual ~TetrisUI() = 0;
     virtual TetrisUI::ControllerEvent getNextEvent() = 0;
     virtual void renderView(TetrisData* gameData) = 0;
 protected:
     TetrisUI();
-    
-protected:
-    static const int boardSizeColumn;
-    static const int boardBoundaryRow;
 };
 
 #endif

@@ -15,7 +15,9 @@ public:
         FAILURE,
         GAME_OVER
     };
-    
+private:
+    static Position tetrominoInitialPosition();
+
 public:
     TetrisModel();
     ~TetrisModel();
@@ -41,9 +43,6 @@ private:
     TetrominoBlock* shadowTetromino;
     TetrominoBlock* nextTetromino;
     TetrominoBlock* holdingTetromino;
-    
-private:
-    static Position tetrominoInitialPosition();
     
 public:
     void linkWithGameStatistics(TetrisStatistics* gameStatistics);
