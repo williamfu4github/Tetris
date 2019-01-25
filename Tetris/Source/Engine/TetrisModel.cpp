@@ -3,6 +3,7 @@
 #include "Engine/Tetromino/TetrominoSpawner.hpp"
 #include "Engine/TetrisBoard.hpp"
 #include "Engine/Tetromino/TetrominoBlock.hpp"
+#include "Engine/TetrisStatistics.hpp"
 #include "Data/TetrisData.hpp"
 
 Position TetrisModel::tetrominoInitialPosition() {
@@ -16,6 +17,7 @@ TetrisModel::TetrisModel():
     gameBoard = new TetrisBoard;
     activeTetromino = tetrominoSpawner->createOneTetromino();
     nextTetromino = tetrominoSpawner->createOneTetromino();
+    this->linkWithGameStatistics(nullptr);
     this->initializeActiveTetromino();
 }
 
@@ -139,7 +141,7 @@ TetrisModel::ActionResult TetrisModel::finalizeActiveTetromino() {
         return TetrisModel::ActionResult::GAME_OVER;
     }
     gameBoard->setTilesState(activeTetromino->getTilePositions(), activeTetromino->getBlockType());
-    // TODO update score/stat
+    gameStatistics->addClearedLines(gameBoard->countFullRows());
     gameBoard->clearFullRows();
     return TetrisModel::ActionResult::SUCCESS;
 }

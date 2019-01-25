@@ -5,7 +5,6 @@ using std::cerr;
 using std::endl;
 namespace program_options = boost::program_options;
 
-
 CommandLineOptionsHandler::~CommandLineOptionsHandler() {
     delete optionsDescription;
     delete optionsMap;

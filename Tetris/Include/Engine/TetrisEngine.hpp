@@ -21,8 +21,8 @@ private:
         LOCK_DELAY
     };
 private:
-    static const std::chrono::milliseconds gravitationQuantum;
     static const std::chrono::milliseconds lockDelayQuantum;
+    static std::chrono::milliseconds gravitationQuantum(int gameLevel);
     
 public:
     TetrisEngine();

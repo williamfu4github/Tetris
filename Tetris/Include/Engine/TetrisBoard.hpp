@@ -19,7 +19,7 @@ public:
     bool checkTilesEmpty(std::vector<Position> tilePositions) const;
     bool checkTilesOutside(std::vector<Position> tilePositions) const;
     void setTilesState(std::vector<Position> tilePositions, TetrominoType newState);
-    int countFullRows() const;    // not used
+    int countFullRows() const;
     void clearFullRows();
     void collectData(TetrisData* gameData) const;
 private:

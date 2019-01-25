@@ -1,13 +1,21 @@
 #include "Engine/TetrisStatistics.hpp"
 
-TetrisStatistics::TetrisStatistics() {
-    lineCleared = 0;
+#include "Engine/TetrisLevel.hpp"
+
+TetrisStatistics::TetrisStatistics():
+    totalLineCleared(0) {
+    gameLevel = new TetrisLevel;
 }
 
 TetrisStatistics::~TetrisStatistics() {
+    delete gameLevel;
 }
 
-// NOTE: fixed-goal level system
+void TetrisStatistics::addClearedLines(int numberOfLines) {
+    gameLevel->addClearedLines(numberOfLines);
+    totalLineCleared += numberOfLines;
+}
+
 int TetrisStatistics::getGameLevel() const {
-    return (lineCleared / 10) + 1;
+    return gameLevel->getGameLevel();
 }

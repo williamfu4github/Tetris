@@ -43,11 +43,11 @@ private:
     TetrominoBlock* shadowTetromino;
     TetrominoBlock* nextTetromino;
     TetrominoBlock* holdingTetromino;
-    
-public:
-    void linkWithGameStatistics(TetrisStatistics* gameStatistics);
+
 private:
     TetrisStatistics* gameStatistics;
+public:
+    void linkWithGameStatistics(TetrisStatistics* gameStatistics);
 };
 
 #endif

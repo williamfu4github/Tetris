@@ -5,8 +5,12 @@
 #include "Engine/TetrisStatistics.hpp"
 namespace chrono = std::chrono;
 
-const chrono::milliseconds TetrisEngine::gravitationQuantum(1000);
 const chrono::milliseconds TetrisEngine::lockDelayQuantum(500);
+
+std::chrono::milliseconds TetrisEngine::gravitationQuantum(int gameLevel) {
+    // TODO change placeholder
+    return ((gameLevel == 1) ? std::chrono::milliseconds(1000) : std::chrono::milliseconds(100));
+}
 
 TetrisEngine::TetrisEngine():
     gameStatus(TetrisEngine::GameStatus::NOT_STARTED),
@@ -16,6 +20,7 @@ TetrisEngine::TetrisEngine():
     temporalTaskTimer = new Timer;
     gameModel = new TetrisModel;
     gameStatistics = new TetrisStatistics;
+    gameModel->linkWithGameStatistics(gameStatistics);
 }
 
 TetrisEngine::~TetrisEngine() {
@@ -151,7 +156,7 @@ void TetrisEngine::updateTemporalTask(bool carryGravity) {
 bool TetrisEngine::reachTemporalTaskEvent() const {
     switch (temporalTask) {
         case TetrisEngine::TemporalTask::GRAVITATION:
-            return (temporalTaskTimer->getAccumulatedTime() >= TetrisEngine::gravitationQuantum);
+            return (temporalTaskTimer->getAccumulatedTime() >= TetrisEngine::gravitationQuantum(gameStatistics->getGameLevel()));
         case TetrisEngine::TemporalTask::LOCK_DELAY:
             return (temporalTaskTimer->getAccumulatedTime() >= TetrisEngine::lockDelayQuantum);
     }
