@@ -3,7 +3,6 @@
 
 class TetrisLevel {
 private:
-    static const int levelMax;
     static int lineValue(int numberOfLines);
     static int levelLineValueTarget(int gameLevel);
 

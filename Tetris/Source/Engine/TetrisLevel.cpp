@@ -2,9 +2,6 @@
 
 #include <algorithm>
 
-// TODO change the placeholder
-const int TetrisLevel::levelMax = 5;
-
 int TetrisLevel::lineValue(int numberOfLines) {
     switch (numberOfLines) {
         case 1:
@@ -46,7 +43,6 @@ void TetrisLevel::addClearedLines(int numberOfLines) {
             newValue = 0;
         }
     }
-    gameLevel = std::min(gameLevel, TetrisLevel::levelMax);
 }
 
 int TetrisLevel::getGameLevel() const {

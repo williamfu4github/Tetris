@@ -7,9 +7,37 @@ namespace chrono = std::chrono;
 
 const chrono::milliseconds TetrisEngine::lockDelayQuantum(500);
 
-std::chrono::milliseconds TetrisEngine::gravitationQuantum(int gameLevel) {
-    // TODO change placeholder
-    return ((gameLevel == 1) ? std::chrono::milliseconds(1000) : std::chrono::milliseconds(100));
+chrono::milliseconds TetrisEngine::gravitationQuantum(int gameLevel) {
+    switch (gameLevel) {
+        case 1:
+            return chrono::milliseconds(1000);
+        case 2:
+            return chrono::milliseconds(793);
+        case 3:
+            return chrono::milliseconds(618);
+        case 4:
+            return chrono::milliseconds(473);
+        case 5:
+            return chrono::milliseconds(355);
+        case 6:
+            return chrono::milliseconds(262);
+        case 7:
+            return chrono::milliseconds(190);
+        case 8:
+            return chrono::milliseconds(135);
+        case 9:
+            return chrono::milliseconds(94);
+        case 10:
+            return chrono::milliseconds(64);
+        case 11:
+            return chrono::milliseconds(43);
+        case 12:
+            return chrono::milliseconds(28);
+        case 13:
+            return chrono::milliseconds(18);
+        default:
+            return chrono::milliseconds(10);
+    }
 }
 
 TetrisEngine::TetrisEngine():
