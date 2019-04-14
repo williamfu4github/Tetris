@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0128656521A3FE9800742B07 /* CommandLineOptionsHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128656421A3FE9800742B07 /* CommandLineOptionsHandler.cpp */; };
+		0128656D21A40DF500742B07 /* TetrisCommandLineOptionsHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128656B21A40DF500742B07 /* TetrisCommandLineOptionsHandler.cpp */; };
+		0128657021A4A44800742B07 /* GameTetris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128656E21A4A44800742B07 /* GameTetris.cpp */; };
+		0128657321A4A59A00742B07 /* TetrisModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128657121A4A59A00742B07 /* TetrisModel.cpp */; };
+		0128657621A4A71500742B07 /* TetrisUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128657421A4A71500742B07 /* TetrisUI.cpp */; };
+		0128657921A4AE8A00742B07 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128657721A4AE8A00742B07 /* Timer.cpp */; };
+		0128657C21A4B4C100742B07 /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128657A21A4B4C100742B07 /* Position.cpp */; };
+		0128658F21A4B79500742B07 /* IBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658721A4B79500742B07 /* IBlock.cpp */; };
+		0128659021A4B79500742B07 /* JBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658821A4B79500742B07 /* JBlock.cpp */; };
+		0128659121A4B79500742B07 /* LBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658921A4B79500742B07 /* LBlock.cpp */; };
+		0128659221A4B79500742B07 /* OBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658A21A4B79500742B07 /* OBlock.cpp */; };
+		0128659321A4B79500742B07 /* SBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658B21A4B79500742B07 /* SBlock.cpp */; };
+		0128659421A4B79500742B07 /* TBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658C21A4B79500742B07 /* TBlock.cpp */; };
+		0128659521A4B79500742B07 /* TetrominoBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658D21A4B79500742B07 /* TetrominoBlock.cpp */; };
+		0128659621A4B79500742B07 /* ZBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128658E21A4B79500742B07 /* ZBlock.cpp */; };
+		0128659E21A4E34700742B07 /* TetrominoSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128659D21A4E34700742B07 /* TetrominoSpawner.cpp */; };
+		012865A121A4E6D800742B07 /* TetrisBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012865A021A4E6D800742B07 /* TetrisBoard.cpp */; };
+		012865A421A5FAD900742B07 /* TetrisEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012865A221A5FAD900742B07 /* TetrisEngine.cpp */; };
+		012865AB21A6244300742B07 /* TetrisData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012865A921A6244300742B07 /* TetrisData.cpp */; };
+		012865B121A62C6C00742B07 /* TetrisX11UI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012865B021A62C6C00742B07 /* TetrisX11UI.cpp */; };
+		0176160721BCF9EF004F59DF /* TetrisStatistics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0176160521BCF9EF004F59DF /* TetrisStatistics.cpp */; };
+		0176160A21BE3C5D004F59DF /* TetrisLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0176160821BE3C5D004F59DF /* TetrisLevel.cpp */; };
+		018C34E321A7726F002A5F80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128655F21A3EF7B00742B07 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0128654621A3E62300742B07 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0128654821A3E62300742B07 /* Tetris */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tetris; sourceTree = BUILT_PRODUCTS_DIR; };
+		0128655D21A3E95B00742B07 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		0128655F21A3EF7B00742B07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0128656121A3EF8400742B07 /* PlaygroundTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlaygroundTest.cpp; sourceTree = "<group>"; };
+		0128656421A3FE9800742B07 /* CommandLineOptionsHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommandLineOptionsHandler.cpp; sourceTree = "<group>"; };
+		0128656721A3FEDD00742B07 /* CommandLineOptionsHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommandLineOptionsHandler.hpp; sourceTree = "<group>"; };
+		0128656B21A40DF500742B07 /* TetrisCommandLineOptionsHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisCommandLineOptionsHandler.cpp; sourceTree = "<group>"; };
+		0128656C21A40DF500742B07 /* TetrisCommandLineOptionsHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisCommandLineOptionsHandler.hpp; sourceTree = "<group>"; };
+		0128656E21A4A44800742B07 /* GameTetris.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameTetris.cpp; sourceTree = "<group>"; };
+		0128656F21A4A44800742B07 /* GameTetris.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameTetris.hpp; sourceTree = "<group>"; };
+		0128657121A4A59A00742B07 /* TetrisModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisModel.cpp; sourceTree = "<group>"; };
+		0128657221A4A59A00742B07 /* TetrisModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisModel.hpp; sourceTree = "<group>"; };
+		0128657421A4A71500742B07 /* TetrisUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisUI.cpp; sourceTree = "<group>"; };
+		0128657521A4A71500742B07 /* TetrisUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisUI.hpp; sourceTree = "<group>"; };
+		0128657721A4AE8A00742B07 /* Timer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		0128657821A4AE8A00742B07 /* Timer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
+		0128657A21A4B4C100742B07 /* Position.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
+		0128657B21A4B4C100742B07 /* Position.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Position.hpp; sourceTree = "<group>"; };
+		0128657E21A4B78C00742B07 /* IBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IBlock.hpp; sourceTree = "<group>"; };
+		0128657F21A4B78C00742B07 /* JBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JBlock.hpp; sourceTree = "<group>"; };
+		0128658021A4B78C00742B07 /* LBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LBlock.hpp; sourceTree = "<group>"; };
+		0128658121A4B78C00742B07 /* OBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OBlock.hpp; sourceTree = "<group>"; };
+		0128658221A4B78C00742B07 /* SBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SBlock.hpp; sourceTree = "<group>"; };
+		0128658321A4B78C00742B07 /* TBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TBlock.hpp; sourceTree = "<group>"; };
+		0128658421A4B78C00742B07 /* TetrominoBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TetrominoBlock.hpp; sourceTree = "<group>"; };
+		0128658521A4B78C00742B07 /* ZBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZBlock.hpp; sourceTree = "<group>"; };
+		0128658721A4B79500742B07 /* IBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IBlock.cpp; sourceTree = "<group>"; };
+		0128658821A4B79500742B07 /* JBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JBlock.cpp; sourceTree = "<group>"; };
+		0128658921A4B79500742B07 /* LBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBlock.cpp; sourceTree = "<group>"; };
+		0128658A21A4B79500742B07 /* OBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OBlock.cpp; sourceTree = "<group>"; };
+		0128658B21A4B79500742B07 /* SBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SBlock.cpp; sourceTree = "<group>"; };
+		0128658C21A4B79500742B07 /* TBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBlock.cpp; sourceTree = "<group>"; };
+		0128658D21A4B79500742B07 /* TetrominoBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrominoBlock.cpp; sourceTree = "<group>"; };
+		0128658E21A4B79500742B07 /* ZBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZBlock.cpp; sourceTree = "<group>"; };
+		0128659B21A4C25600742B07 /* TetrominoType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrominoType.hpp; sourceTree = "<group>"; };
+		0128659C21A4E33C00742B07 /* TetrominoSpawner.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TetrominoSpawner.hpp; sourceTree = "<group>"; };
+		0128659D21A4E34700742B07 /* TetrominoSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrominoSpawner.cpp; sourceTree = "<group>"; };
+		0128659F21A4E6CD00742B07 /* TetrisBoard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TetrisBoard.hpp; sourceTree = "<group>"; };
+		012865A021A4E6D800742B07 /* TetrisBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisBoard.cpp; sourceTree = "<group>"; };
+		012865A221A5FAD900742B07 /* TetrisEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisEngine.cpp; sourceTree = "<group>"; };
+		012865A321A5FAD900742B07 /* TetrisEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisEngine.hpp; sourceTree = "<group>"; };
+		012865A921A6244300742B07 /* TetrisData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisData.cpp; sourceTree = "<group>"; };
+		012865AA21A6244300742B07 /* TetrisData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisData.hpp; sourceTree = "<group>"; };
+		012865AD21A628AD00742B07 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		012865AF21A62C6000742B07 /* TetrisX11UI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TetrisX11UI.hpp; sourceTree = "<group>"; };
+		012865B021A62C6C00742B07 /* TetrisX11UI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisX11UI.cpp; sourceTree = "<group>"; };
+		0176160521BCF9EF004F59DF /* TetrisStatistics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisStatistics.cpp; sourceTree = "<group>"; };
+		0176160621BCF9EF004F59DF /* TetrisStatistics.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisStatistics.hpp; sourceTree = "<group>"; };
+		0176160821BE3C5D004F59DF /* TetrisLevel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisLevel.cpp; sourceTree = "<group>"; };
+		0176160921BE3C5D004F59DF /* TetrisLevel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisLevel.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0128654521A3E62300742B07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0128653F21A3E62300742B07 = {
+			isa = PBXGroup;
+			children = (
+				0128655821A3E8BF00742B07 /* Tetris */,
+				0128654921A3E62300742B07 /* Products */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		0128654921A3E62300742B07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0128654821A3E62300742B07 /* Tetris */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0128655821A3E8BF00742B07 /* Tetris */ = {
+			isa = PBXGroup;
+			children = (
+				0128655921A3E8BF00742B07 /* Build */,
+				0128655A21A3E8BF00742B07 /* Include */,
+				0128655B21A3E8BF00742B07 /* Source */,
+				0128655C21A3E8BF00742B07 /* Test */,
+			);
+			path = Tetris;
+			sourceTree = "<group>";
+		};
+		0128655921A3E8BF00742B07 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				0128655D21A3E95B00742B07 /* Makefile */,
+			);
+			path = Build;
+			sourceTree = "<group>";
+		};
+		0128655A21A3E8BF00742B07 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				0128656621A3FEB400742B07 /* Utility */,
+				0128659721A4B7C400742B07 /* Engine */,
+				0128659921A4B80100742B07 /* UI */,
+				012865A721A6220700742B07 /* Data */,
+				012865A521A61DD200742B07 /* Driver */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		0128655B21A3E8BF00742B07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0128656321A3FE5B00742B07 /* Utility */,
+				0128659821A4B7CE00742B07 /* Engine */,
+				0128659A21A4B88300742B07 /* UI */,
+				012865A821A6220E00742B07 /* Data */,
+				012865A621A61DDD00742B07 /* Driver */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		0128655C21A3E8BF00742B07 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0128656121A3EF8400742B07 /* PlaygroundTest.cpp */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		0128656321A3FE5B00742B07 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0128656421A3FE9800742B07 /* CommandLineOptionsHandler.cpp */,
+				0128657721A4AE8A00742B07 /* Timer.cpp */,
+				0128657A21A4B4C100742B07 /* Position.cpp */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0128656621A3FEB400742B07 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0128656721A3FEDD00742B07 /* CommandLineOptionsHandler.hpp */,
+				0128657821A4AE8A00742B07 /* Timer.hpp */,
+				0128657B21A4B4C100742B07 /* Position.hpp */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0128657D21A4B78C00742B07 /* Tetromino */ = {
+			isa = PBXGroup;
+			children = (
+				0128658421A4B78C00742B07 /* TetrominoBlock.hpp */,
+				0128657E21A4B78C00742B07 /* IBlock.hpp */,
+				0128658121A4B78C00742B07 /* OBlock.hpp */,
+				0128658321A4B78C00742B07 /* TBlock.hpp */,
+				0128658221A4B78C00742B07 /* SBlock.hpp */,
+				0128658521A4B78C00742B07 /* ZBlock.hpp */,
+				0128657F21A4B78C00742B07 /* JBlock.hpp */,
+				0128658021A4B78C00742B07 /* LBlock.hpp */,
+				0128659C21A4E33C00742B07 /* TetrominoSpawner.hpp */,
+				0128659B21A4C25600742B07 /* TetrominoType.hpp */,
+			);
+			path = Tetromino;
+			sourceTree = "<group>";
+		};
+		0128658621A4B79500742B07 /* Tetromino */ = {
+			isa = PBXGroup;
+			children = (
+				0128658D21A4B79500742B07 /* TetrominoBlock.cpp */,
+				0128658721A4B79500742B07 /* IBlock.cpp */,
+				0128658A21A4B79500742B07 /* OBlock.cpp */,
+				0128658C21A4B79500742B07 /* TBlock.cpp */,
+				0128658B21A4B79500742B07 /* SBlock.cpp */,
+				0128658E21A4B79500742B07 /* ZBlock.cpp */,
+				0128658821A4B79500742B07 /* JBlock.cpp */,
+				0128658921A4B79500742B07 /* LBlock.cpp */,
+				0128659D21A4E34700742B07 /* TetrominoSpawner.cpp */,
+			);
+			path = Tetromino;
+			sourceTree = "<group>";
+		};
+		0128659721A4B7C400742B07 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				0128657D21A4B78C00742B07 /* Tetromino */,
+				012865A321A5FAD900742B07 /* TetrisEngine.hpp */,
+				0128657221A4A59A00742B07 /* TetrisModel.hpp */,
+				0128659F21A4E6CD00742B07 /* TetrisBoard.hpp */,
+				0176160621BCF9EF004F59DF /* TetrisStatistics.hpp */,
+				0176160921BE3C5D004F59DF /* TetrisLevel.hpp */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		0128659821A4B7CE00742B07 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				0128658621A4B79500742B07 /* Tetromino */,
+				012865A221A5FAD900742B07 /* TetrisEngine.cpp */,
+				0128657121A4A59A00742B07 /* TetrisModel.cpp */,
+				012865A021A4E6D800742B07 /* TetrisBoard.cpp */,
+				0176160521BCF9EF004F59DF /* TetrisStatistics.cpp */,
+				0176160821BE3C5D004F59DF /* TetrisLevel.cpp */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		0128659921A4B80100742B07 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0128657521A4A71500742B07 /* TetrisUI.hpp */,
+				012865AF21A62C6000742B07 /* TetrisX11UI.hpp */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0128659A21A4B88300742B07 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0128657421A4A71500742B07 /* TetrisUI.cpp */,
+				012865B021A62C6C00742B07 /* TetrisX11UI.cpp */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		012865A521A61DD200742B07 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				0128656F21A4A44800742B07 /* GameTetris.hpp */,
+				0128656C21A40DF500742B07 /* TetrisCommandLineOptionsHandler.hpp */,
+				012865AD21A628AD00742B07 /* GameState.hpp */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		012865A621A61DDD00742B07 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				0128656E21A4A44800742B07 /* GameTetris.cpp */,
+				0128656B21A40DF500742B07 /* TetrisCommandLineOptionsHandler.cpp */,
+				0128655F21A3EF7B00742B07 /* main.cpp */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		012865A721A6220700742B07 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				012865AA21A6244300742B07 /* TetrisData.hpp */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		012865A821A6220E00742B07 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				012865A921A6244300742B07 /* TetrisData.cpp */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0128654721A3E62300742B07 /* Tetris */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0128654F21A3E62300742B07 /* Build configuration list for PBXNativeTarget "Tetris" */;
+			buildPhases = (
+				0128654421A3E62300742B07 /* Sources */,
+				0128654521A3E62300742B07 /* Frameworks */,
+				0128654621A3E62300742B07 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tetris;
+			productName = Tetris;
+			productReference = 0128654821A3E62300742B07 /* Tetris */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0128654021A3E62300742B07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "William Fu";
+				TargetAttributes = {
+					0128654721A3E62300742B07 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0128654321A3E62300742B07 /* Build configuration list for PBXProject "Tetris" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0128653F21A3E62300742B07;
+			productRefGroup = 0128654921A3E62300742B07 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0128654721A3E62300742B07 /* Tetris */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0128654421A3E62300742B07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				018C34E321A7726F002A5F80 /* main.cpp in Sources */,
+				0128659621A4B79500742B07 /* ZBlock.cpp in Sources */,
+				0128657621A4A71500742B07 /* TetrisUI.cpp in Sources */,
+				0176160A21BE3C5D004F59DF /* TetrisLevel.cpp in Sources */,
+				0128657021A4A44800742B07 /* GameTetris.cpp in Sources */,
+				0128659421A4B79500742B07 /* TBlock.cpp in Sources */,
+				0128659121A4B79500742B07 /* LBlock.cpp in Sources */,
+				0128657C21A4B4C100742B07 /* Position.cpp in Sources */,
+				0128657321A4A59A00742B07 /* TetrisModel.cpp in Sources */,
+				012865B121A62C6C00742B07 /* TetrisX11UI.cpp in Sources */,
+				0128658F21A4B79500742B07 /* IBlock.cpp in Sources */,
+				0128656521A3FE9800742B07 /* CommandLineOptionsHandler.cpp in Sources */,
+				0128657921A4AE8A00742B07 /* Timer.cpp in Sources */,
+				0128659521A4B79500742B07 /* TetrominoBlock.cpp in Sources */,
+				0176160721BCF9EF004F59DF /* TetrisStatistics.cpp in Sources */,
+				012865AB21A6244300742B07 /* TetrisData.cpp in Sources */,
+				0128659221A4B79500742B07 /* OBlock.cpp in Sources */,
+				0128659E21A4E34700742B07 /* TetrominoSpawner.cpp in Sources */,
+				0128659321A4B79500742B07 /* SBlock.cpp in Sources */,
+				012865A421A5FAD900742B07 /* TetrisEngine.cpp in Sources */,
+				012865A121A4E6D800742B07 /* TetrisBoard.cpp in Sources */,
+				0128659021A4B79500742B07 /* JBlock.cpp in Sources */,
+				0128656D21A40DF500742B07 /* TetrisCommandLineOptionsHandler.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0128654D21A3E62300742B07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0128654E21A3E62300742B07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0128655021A3E62300742B07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					Tetris/Include,
+					/usr/local/include,
+					/usr/X11/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/X11/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lboost_program_options",
+					"-lX11",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0128655121A3E62300742B07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					Tetris/Include,
+					/usr/local/include,
+					/usr/X11/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/X11/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lboost_program_options",
+					"-lX11",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0128654321A3E62300742B07 /* Build configuration list for PBXProject "Tetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0128654D21A3E62300742B07 /* Debug */,
+				0128654E21A3E62300742B07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0128654F21A3E62300742B07 /* Build configuration list for PBXNativeTarget "Tetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0128655021A3E62300742B07 /* Debug */,
+				0128655121A3E62300742B07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0128654021A3E62300742B07 /* Project object */;
+}
