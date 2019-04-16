@@ -29,7 +29,7 @@
 		012865B121A62C6C00742B07 /* TetrisX11UI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 012865B021A62C6C00742B07 /* TetrisX11UI.cpp */; };
 		0176160721BCF9EF004F59DF /* TetrisStatistics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0176160521BCF9EF004F59DF /* TetrisStatistics.cpp */; };
 		0176160A21BE3C5D004F59DF /* TetrisLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0176160821BE3C5D004F59DF /* TetrisLevel.cpp */; };
-		018C34E321A7726F002A5F80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128655F21A3EF7B00742B07 /* main.cpp */; };
+		017E123722657A4A00FC4042 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0128655F21A3EF7B00742B07 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +95,7 @@
 		0176160621BCF9EF004F59DF /* TetrisStatistics.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisStatistics.hpp; sourceTree = "<group>"; };
 		0176160821BE3C5D004F59DF /* TetrisLevel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TetrisLevel.cpp; sourceTree = "<group>"; };
 		0176160921BE3C5D004F59DF /* TetrisLevel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TetrisLevel.hpp; sourceTree = "<group>"; };
+		017E12352265780200FC4042 /* UnitTest_TetrisCommandLineOptionsHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnitTest_TetrisCommandLineOptionsHandler.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +172,7 @@
 		0128655C21A3E8BF00742B07 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				017E12352265780200FC4042 /* UnitTest_TetrisCommandLineOptionsHandler.cpp */,
 				0128656121A3EF8400742B07 /* PlaygroundTest.cpp */,
 			);
 			path = Test;
@@ -367,7 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				018C34E321A7726F002A5F80 /* main.cpp in Sources */,
+				017E123722657A4A00FC4042 /* main.cpp in Sources */,
 				0128659621A4B79500742B07 /* ZBlock.cpp in Sources */,
 				0128657621A4A71500742B07 /* TetrisUI.cpp in Sources */,
 				0176160A21BE3C5D004F59DF /* TetrisLevel.cpp in Sources */,
@@ -512,9 +514,14 @@
 					/usr/local/lib,
 					/usr/X11/lib,
 				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DBOOST_TEST_DYN_LINK",
+				);
 				OTHER_LDFLAGS = (
 					"-lboost_program_options",
 					"-lX11",
+					"-lboost_unit_test_framework",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -533,9 +540,14 @@
 					/usr/local/lib,
 					/usr/X11/lib,
 				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DBOOST_TEST_DYN_LINK",
+				);
 				OTHER_LDFLAGS = (
 					"-lboost_program_options",
 					"-lX11",
+					"-lboost_unit_test_framework",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

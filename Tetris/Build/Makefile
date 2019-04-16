@@ -36,10 +36,10 @@ endif
     LIBS          = -lboost_program_options -lX11
 
     TESTDIR      := $(HOMEDIR)/Test
-    TESTDEFS      =
-    TESTINCLS    := -I$(INCLDIR)
-    TESTLIBDIRS   =
-    TESTLIBS      =
+    TESTDEFS      = -DBOOST_TEST_DYN_LINK
+    TESTINCLS    := -I$(INCLDIR) -I/usr/local/include
+    TESTLIBDIRS   = -L/usr/local/lib
+    TESTLIBS      = -lboost_unit_test_framework
 
 ifeq ($(config),debug)
     OBJDIR       := $(HOMEDIR)/Build/Debug
